@@ -1,0 +1,31 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gplates-proxy"
+version = "1.0.0"
+description = "GPlates Python client/proxy"
+readme = "README.md"
+authors = [{ name = "Michael Chin", email = "michael.chin@sydney.edu.au" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["GPlates", "RESTful", "Web Service", "Plate Tectonics"]
+dependencies = [
+    "python-dotenv",
+    "requests",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/michaelchin/gplates-python-proxy"
+
+[project.scripts]
+gplates-proxy = "gplates_proxy.__main__:main"
