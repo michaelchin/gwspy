@@ -1,4 +1,5 @@
-import requests, json, time, random
+import requests, json
+from shapely import Point
 
 from . import _auth as a
 from ._auth import auth
@@ -68,4 +69,20 @@ def get_paleo_coordinates(
             lats_r.append(c[1])
             lons_r.append(c[0])
 
-    return lats_r, lons_r
+    return {"lats": lats_r, "lons": lons_r}
+
+
+@auth
+def reconstruct_shapely_points(
+    points: list[Point],
+    age,
+    model="SETON2012",
+    pids=[],
+):
+    """get paleo-coordinates for a list of shapely points, return new shapely points"""
+    lats = [p.y for p in points]
+    lons = [p.x for p in points]
+
+    data = get_paleo_coordinates(lats, lons, age, model, pids)
+
+    return [Point(x, y) for x, y in zip(data["lons"], data["lats"])]

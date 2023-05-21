@@ -1,1 +1,1 @@
-from .reconstruction import get_paleo_coordinates
+from .reconstruction import get_paleo_coordinates, reconstruct_shapely_points
