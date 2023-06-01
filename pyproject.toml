@@ -3,9 +3,9 @@ requires      = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gplates-proxy"
-version = "1.0.0"
-description = "GPlates Python client/proxy"
+name = "gplates-ws-proxy"
+version = "0.0.1"
+description = "GPlates Web Service Python client/proxy"
 readme = "README.md"
 authors = [{ name = "Michael Chin", email = "michael.chin@sydney.edu.au" }]
 license = { file = "LICENSE" }

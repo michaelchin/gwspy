@@ -1,6 +1,6 @@
 #### activate/deactivate the python virtual env
 
-- `source geoserver-pyadm-venv/bin/activate`
+- `source gplates-proxy-venv/bin/activate`
 
 - `deactivate`
 
@@ -18,10 +18,10 @@
 
 - `pip-compile pyproject.toml`
 - `pip3 install .`
-- `sphinx-apidoc -o doc/source src/geoserver_pyadm/`
+- `sphinx-apidoc -o doc/source src/gplates_proxy/`
 - `make html`
 
-⚠️You need to re-install the geoserver_pyadm, otherwise the sphinx will keep using the installed stable version(old code).
+⚠️You need to re-install the gplates_proxy, otherwise the sphinx will keep using the installed stable version(old code).
 
 #### Publish to PyPI
 

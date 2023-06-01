@@ -1,3 +1,4 @@
+src/gplates_proxy/examples/maps
 *.env
 gplates-proxy-venv/
 # Byte-compiled / optimized / DLL files

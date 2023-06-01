@@ -25,5 +25,5 @@ def get_model_details(model_name):
         verify=True,
         proxies={"http": a.proxy},
     )
-    print(ret.text)
+
     return json.loads(str(ret.text))
