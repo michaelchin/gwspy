@@ -1,6 +1,12 @@
-# gplates-python-proxy
+# GPlates Web Service Python Client/Proxy
 
-<video width="400" controls>
-  <source src="https://raw.githubusercontent.com/michaelchin/gplates-python-proxy/main/src/gplates_proxy/examples/videos/coastlines.mp4" type="video/mp4">
-  Your browser does not support HTML video.
-</video>
+This Python package allows users to access GPlates Web Service more easily via Python programming interface.
+
+### Installation
+
+  `pip install gplates-ws-proxy`
+  
+### Examples
+
+https://github.com/michaelchin/gplates-python-proxy/assets/2688316/37f7859f-6f2d-4404-b3b8-cbbb5becad28
+
