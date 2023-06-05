@@ -1,5 +1,4 @@
 import requests
-import shapely
 from shapely.geometry import shape
 
 from . import _auth as a
@@ -14,26 +13,39 @@ def get_paleo_coastlines(
     facecolor="lime",
     edgecolor="none",
     alpha=0.5,
-    extent=(-20, 20, -20, 20),
+    extent=(-180, 180, -90, 90),
+    wrap=True,
+    central_meridian=0.0,
     anchor_plate_id=0,
 ):
     """Get paleo-coastlines
+
+    By default, the polygons are wrapped along (180/-180). If you would like to wrap them
+    at other locations, be careful that some plotting packages might not work well with them.
 
     :param age: the input paleo age
     :param model: the name of rotation model
     :param format: the return data format, such as geojson, shapely, png
     :param facecolor: face color -- only for png format
     :param edgecolor: edge color -- only for png format
-    "param alpha": alpha -- only for png format
+    :param alpha: alpha -- only for png format
     :param extent: (left, right, bottom, top) -- only for png format
     :param anchor_plate_id: anchor plate id
+    :param central_meridian: central meridian
+    :param wrap: flag to indicate if wrap the polygons along dateline
 
     :returns: paleo-coastlines
     :rtype: geojson
 
     """
 
-    params = {"time": age, "model": model, "anchor_plate_id": anchor_plate_id}
+    params = {
+        "time": age,
+        "model": model,
+        "anchor_plate_id": anchor_plate_id,
+        "wrap": wrap,
+        "central_meridian": central_meridian,
+    }
     if format == "png":
         params["fmt"] = "png"
         params["facecolor"] = facecolor

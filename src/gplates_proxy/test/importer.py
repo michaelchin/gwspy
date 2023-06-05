@@ -15,7 +15,7 @@ else:
     # if you are testing the local python files, use the code below
     import sys
 
-    # Important: you need to `pip uninstall -y geoserver-pyadm`
+    # Important: you need to `pip uninstall -y gplates-ws-proxy`
     sys.path.append("../..")
     from gplates_proxy import gplates
 
