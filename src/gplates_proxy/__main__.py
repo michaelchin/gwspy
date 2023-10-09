@@ -1,8 +1,8 @@
 import argparse
-import sys
 import json
+import sys
 
-from .rotation_model import list_rotation_models, get_model_details
+from .plate_model import PlateModel
 
 
 class ArgParser(argparse.ArgumentParser):
@@ -32,14 +32,16 @@ def main():
     if args.command == "ls":
         if args.rotation_model == None:
             print("Listing all the rotation models....")
-            models = list_rotation_models()
+            models = PlateModel.list()
             print(json.dumps(models))
         else:
             print(f"Listing all the layers in rotation model {args.rotation_model}")
+            model_details = PlateModel(args.rotation_model).get_cfg()
+            print(json.dumps(model_details, indent=4))
 
     elif args.command == "get":
         if args.rotation_model:
-            model_details = get_model_details(args.rotation_model)
+            model_details = PlateModel(args.rotation_model).get_cfg()
             print(json.dumps(model_details, indent=4))
         else:
             print(f"get something")

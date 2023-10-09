@@ -62,8 +62,6 @@ def get_cfg():
         load_dotenv(f"{cwd}/.env")
         username, passwd, server_url, proxy = get_env()
         # still failed? inform caller something is wrong
-        if not all([username, passwd, server_url]):
-            raise Exception(
-                "set env variables GWS_USERNAME, GWS_PASSWORD, GWS_URL and then retry"
-            )
+        if not server_url:
+            server_url = "https://gws.gplates.org"
     return username, passwd, server_url, proxy
