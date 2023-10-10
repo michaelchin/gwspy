@@ -23,10 +23,10 @@ requires-python = ">=3.9"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-exclude = ["gplates_proxy.tests*"]
+exclude = ["gplates_ws_proxy.tests*"]
 
 [tool.setuptools.package-data]
-gplates_proxy = ["examples/*.ipynb"]
+gplates_ws_proxy = ["examples/*.ipynb"]
 
 
 [project.optional-dependencies]
@@ -36,4 +36,4 @@ dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 Homepage = "https://github.com/michaelchin/gplates-python-proxy"
 
 [project.scripts]
-gplates-proxy = "gplates_proxy.__main__:main"
+gplates-ws-proxy = "gplates_ws_proxy.__main__:main"

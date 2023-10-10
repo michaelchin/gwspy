@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import shapely
 
 sys.path.insert(0, "../../")
-from gplates_proxy import PlateModel, reconstruct_shapely_points
+from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
 
 
 def main():

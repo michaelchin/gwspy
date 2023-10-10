@@ -10,7 +10,7 @@ if (
     GPLATES_PROXY_TEST_MODULE = True
 
 if GPLATES_PROXY_TEST_MODULE:
-    import gplates_proxy as gplates
+    import gplates_ws_proxy as gplates
 
     print("GPLATES_PROXY_TEST_MODULE=true; testing gplates_proxy module")
 else:
@@ -19,6 +19,6 @@ else:
 
     # Important: you need to `pip uninstall -y gplates-ws-proxy`
     sys.path.insert(0, "../..")
-    from gplates_proxy import gplates
+    from gplates_ws_proxy import gplates
 
     print("GPLATES_PROXY_TEST_MODULE=false; testing gplates.py")
