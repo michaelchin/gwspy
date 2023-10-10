@@ -18,6 +18,7 @@
 
 - `pip-compile pyproject.toml`
 - `pip3 install .`
+- `pip3 install -U sphinx sphinx_rtd_theme`
 - `sphinx-apidoc -o doc/source src/gplates_proxy/`
 - `make html`
 
