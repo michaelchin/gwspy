@@ -21,6 +21,14 @@ dependencies = [
 ]
 requires-python = ">=3.9"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["gplates_proxy.tests*"]
+
+[tool.setuptools.package-data]
+gplates_proxy = ["examples/*.ipynb"]
+
+
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 

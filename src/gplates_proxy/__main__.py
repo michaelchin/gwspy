@@ -32,7 +32,7 @@ def main():
     if args.command == "ls":
         if args.rotation_model == None:
             print("Listing all the rotation models....")
-            models = PlateModel.list()
+            models = PlateModel.list_models()
             print(json.dumps(models))
         else:
             print(f"Listing all the layers in rotation model {args.rotation_model}")

@@ -1,4 +1,6 @@
-import requests, json
+import json
+
+import requests
 from shapely import Point
 
 from . import _auth as a
@@ -73,7 +75,7 @@ def get_paleo_coordinates(
 
 
 @auth
-def reconstruct_shapely_points(
+def reconstruct_points(
     points: list[Point],
     age,
     model="SETON2012",
