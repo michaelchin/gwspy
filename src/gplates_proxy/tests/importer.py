@@ -1,5 +1,7 @@
 import os
 
+import pytest
+
 GPLATES_PROXY_TEST_MODULE = False
 if (
     "GPLATES_PROXY_TEST_MODULE" in os.environ

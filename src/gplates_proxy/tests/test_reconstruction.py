@@ -1,12 +1,16 @@
 from importer import *
 from shapely import Point
 
-lats = [50, 10, 50]
-lons = [-100, 160, 100]
 
-r = gplates.get_paleo_coordinates(lats, lons, 100, model="PALEOMAP")
-print(r)
+def test_reconstruct_points():
+    lats = [50, 10, 50]
+    lons = [-100, 160, 100]
 
-points = [Point(x, y) for x, y in zip(lons, lats)]
-r = gplates.reconstruct_shapely_points(points, 100, model="PALEOMAP")
-print(r)
+    points = [Point(x, y) for x, y in zip(lons, lats)]
+
+    model = gplates.PlateModel("Muller2019")
+    paleo_points = gplates.reconstruct_shapely_points(model, points, 100)
+    print(paleo_points)
+
+    paleo_points = model.reconstruct(lats, lons, 100)
+    print(paleo_points)
