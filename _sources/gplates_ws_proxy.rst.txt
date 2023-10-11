@@ -20,6 +20,14 @@ gplates\_ws\_proxy.gplates module
    :undoc-members:
    :show-inheritance:
 
+gplates\_ws\_proxy.paleoearth module
+------------------------------------
+
+.. automodule:: gplates_ws_proxy.paleoearth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 gplates\_ws\_proxy.plate\_model module
 --------------------------------------
 

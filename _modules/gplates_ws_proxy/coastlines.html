@@ -80,7 +80,7 @@
 <a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.coastlines.get_paleo_coastlines">[docs]</a>
 <span class="nd">@auth</span>
 <span class="k">def</span> <span class="nf">get_paleo_coastlines</span><span class="p">(</span>
-    <span class="n">age</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">,</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;MULLER2022&quot;</span><span class="p">,</span>
     <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;geojson&quot;</span><span class="p">,</span>
     <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span>
@@ -96,7 +96,7 @@
 <span class="sd">    By default, the polygons are wrapped along (180/-180). If you would like to wrap them</span>
 <span class="sd">    at other locations, be careful that some plotting packages might not work well with them.</span>
 
-<span class="sd">    :param age: the input paleo age</span>
+<span class="sd">    :param time: the input paleo age</span>
 <span class="sd">    :param model: the name of rotation model</span>
 <span class="sd">    :param format: the return data format, such as geojson, shapely, png</span>
 <span class="sd">    :param facecolor: face color -- only for png format</span>
@@ -113,7 +113,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">age</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span>
         <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
         <span class="s2">&quot;anchor_plate_id&quot;</span><span class="p">:</span> <span class="n">anchor_plate_id</span><span class="p">,</span>
         <span class="s2">&quot;wrap&quot;</span><span class="p">:</span> <span class="n">wrap</span><span class="p">,</span>

@@ -51,6 +51,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.gplates">gplates_ws_proxy.gplates module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.paleoearth">gplates_ws_proxy.paleoearth module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.paleoearth.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">get_paleo_labels()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.plate_model">gplates_ws_proxy.plate_model module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.plate_model.PlateModel"><code class="docutils literal notranslate"><span class="pre">PlateModel</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.plate_model.reconstruct_shapely_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_shapely_points()</span></code></a></li>
@@ -102,14 +106,14 @@
 <span id="gplates-ws-proxy-coastlines-module"></span><h2>gplates_ws_proxy.coastlines module<a class="headerlink" href="#module-gplates_ws_proxy.coastlines" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="gplates_ws_proxy.coastlines.get_paleo_coastlines">
-<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.coastlines.</span></span><span class="sig-name descname"><span class="pre">get_paleo_coastlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MULLER2022'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'geojson'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-180,</span> <span class="pre">180,</span> <span class="pre">-90,</span> <span class="pre">90)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor_plate_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/coastlines.html#get_paleo_coastlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.coastlines.get_paleo_coastlines" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.coastlines.</span></span><span class="sig-name descname"><span class="pre">get_paleo_coastlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MULLER2022'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'geojson'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-180,</span> <span class="pre">180,</span> <span class="pre">-90,</span> <span class="pre">90)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor_plate_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/coastlines.html#get_paleo_coastlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.coastlines.get_paleo_coastlines" title="Link to this definition"></a></dt>
 <dd><p>Get paleo-coastlines</p>
 <p>By default, the polygons are wrapped along (180/-180). If you would like to wrap them
 at other locations, be careful that some plotting packages might not work well with them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>age</strong> – the input paleo age</p></li>
+<li><p><strong>time</strong> – the input paleo age</p></li>
 <li><p><strong>model</strong> – the name of rotation model</p></li>
 <li><p><strong>format</strong> – the return data format, such as geojson, shapely, png</p></li>
 <li><p><strong>facecolor</strong> – face color – only for png format</p></li>
@@ -133,6 +137,20 @@ at other locations, be careful that some plotting packages might not work well w
 </section>
 <section id="module-gplates_ws_proxy.gplates">
 <span id="gplates-ws-proxy-gplates-module"></span><h2>gplates_ws_proxy.gplates module<a class="headerlink" href="#module-gplates_ws_proxy.gplates" title="Link to this heading"></a></h2>
+</section>
+<section id="module-gplates_ws_proxy.paleoearth">
+<span id="gplates-ws-proxy-paleoearth-module"></span><h2>gplates_ws_proxy.paleoearth module<a class="headerlink" href="#module-gplates_ws_proxy.paleoearth" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.paleoearth.get_paleo_labels">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.paleoearth.</span></span><span class="sig-name descname"><span class="pre">get_paleo_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MULLER2022'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/paleoearth.html#get_paleo_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.paleoearth.get_paleo_labels" title="Link to this definition"></a></dt>
+<dd><p>get a list of paleo-labels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dict object, {“names”: names, “lons”: lons, “lats”: lats}</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-gplates_ws_proxy.plate_model">
 <span id="gplates-ws-proxy-plate-model-module"></span><h2>gplates_ws_proxy.plate_model module<a class="headerlink" href="#module-gplates_ws_proxy.plate_model" title="Link to this heading"></a></h2>
