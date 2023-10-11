@@ -6,7 +6,7 @@ import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 import shapely
 
-sys.path.insert(0, "../../")
+sys.path.insert(0, "../src/")
 from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
 
 
@@ -22,7 +22,7 @@ def main():
 
     # plot the points
     crs = ccrs.Robinson(central_longitude=0.0, globe=None)
-    fig = plt.figure(figsize=(12, 8), dpi=120)
+    fig = plt.figure(figsize=(12, 6), dpi=120)
     ax = plt.axes(projection=crs)
     ax.gridlines()
     ax.set_global()
@@ -47,7 +47,8 @@ def main():
         transform=ccrs.PlateCarree(),
     )
 
-    fig.savefig(f"reconstruct-shapely-points.png", format="png")
+    plt.show()
+    # fig.savefig(f"reconstruct-shapely-points.png", format="png")
     plt.close()
 
 

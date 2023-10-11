@@ -7,7 +7,7 @@ from ._auth import auth
 
 @auth
 def get_paleo_coastlines(
-    age,
+    time,
     model="MULLER2022",
     format="geojson",
     facecolor="lime",
@@ -23,7 +23,7 @@ def get_paleo_coastlines(
     By default, the polygons are wrapped along (180/-180). If you would like to wrap them
     at other locations, be careful that some plotting packages might not work well with them.
 
-    :param age: the input paleo age
+    :param time: the input paleo age
     :param model: the name of rotation model
     :param format: the return data format, such as geojson, shapely, png
     :param facecolor: face color -- only for png format
@@ -40,7 +40,7 @@ def get_paleo_coastlines(
     """
 
     params = {
-        "time": age,
+        "time": time,
         "model": model,
         "anchor_plate_id": anchor_plate_id,
         "wrap": wrap,
