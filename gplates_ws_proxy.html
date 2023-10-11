@@ -46,11 +46,22 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gplates_ws_proxy</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">gplates_ws_proxy package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-coastlines-module">gplates_ws_proxy.coastlines module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-gplates-module">gplates_ws_proxy.gplates module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-plate-model-module">gplates_ws_proxy.plate_model module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-reconstruction-module">gplates_ws_proxy.reconstruction module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.coastlines">gplates_ws_proxy.coastlines module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.coastlines.get_paleo_coastlines"><code class="docutils literal notranslate"><span class="pre">get_paleo_coastlines()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.gplates">gplates_ws_proxy.gplates module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.plate_model">gplates_ws_proxy.plate_model module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.plate_model.PlateModel"><code class="docutils literal notranslate"><span class="pre">PlateModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.plate_model.reconstruct_shapely_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_shapely_points()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.reconstruction">gplates_ws_proxy.reconstruction module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.reconstruction.get_paleo_coordinates"><code class="docutils literal notranslate"><span class="pre">get_paleo_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.reconstruction.reconstruct_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_points()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -87,20 +98,97 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="gplates-ws-proxy-coastlines-module">
-<h2>gplates_ws_proxy.coastlines module<a class="headerlink" href="#gplates-ws-proxy-coastlines-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.coastlines">
+<span id="gplates-ws-proxy-coastlines-module"></span><h2>gplates_ws_proxy.coastlines module<a class="headerlink" href="#module-gplates_ws_proxy.coastlines" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.coastlines.get_paleo_coastlines">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.coastlines.</span></span><span class="sig-name descname"><span class="pre">get_paleo_coastlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MULLER2022'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'geojson'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-180,</span> <span class="pre">180,</span> <span class="pre">-90,</span> <span class="pre">90)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor_plate_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/coastlines.html#get_paleo_coastlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.coastlines.get_paleo_coastlines" title="Link to this definition"></a></dt>
+<dd><p>Get paleo-coastlines</p>
+<p>By default, the polygons are wrapped along (180/-180). If you would like to wrap them
+at other locations, be careful that some plotting packages might not work well with them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>age</strong> – the input paleo age</p></li>
+<li><p><strong>model</strong> – the name of rotation model</p></li>
+<li><p><strong>format</strong> – the return data format, such as geojson, shapely, png</p></li>
+<li><p><strong>facecolor</strong> – face color – only for png format</p></li>
+<li><p><strong>edgecolor</strong> – edge color – only for png format</p></li>
+<li><p><strong>alpha</strong> – alpha – only for png format</p></li>
+<li><p><strong>extent</strong> – (left, right, bottom, top) – only for png format</p></li>
+<li><p><strong>anchor_plate_id</strong> – anchor plate id</p></li>
+<li><p><strong>central_meridian</strong> – central meridian</p></li>
+<li><p><strong>wrap</strong> – flag to indicate if wrap the polygons along dateline</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>paleo-coastlines</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>geojson</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="gplates-ws-proxy-gplates-module">
-<h2>gplates_ws_proxy.gplates module<a class="headerlink" href="#gplates-ws-proxy-gplates-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.gplates">
+<span id="gplates-ws-proxy-gplates-module"></span><h2>gplates_ws_proxy.gplates module<a class="headerlink" href="#module-gplates_ws_proxy.gplates" title="Link to this heading"></a></h2>
 </section>
-<section id="gplates-ws-proxy-plate-model-module">
-<h2>gplates_ws_proxy.plate_model module<a class="headerlink" href="#gplates-ws-proxy-plate-model-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.plate_model">
+<span id="gplates-ws-proxy-plate-model-module"></span><h2>gplates_ws_proxy.plate_model module<a class="headerlink" href="#module-gplates_ws_proxy.plate_model" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.plate_model.</span></span><span class="sig-name descname"><span class="pre">PlateModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MULLER2019'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel.get_cfg">
+<span class="sig-name descname"><span class="pre">get_cfg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel.get_cfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel.get_cfg" title="Link to this definition"></a></dt>
+<dd><p>Given a rotation model name, return the details about the model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel.list_models">
+<span class="sig-name descname"><span class="pre">list_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel.list_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel.list_models" title="Link to this definition"></a></dt>
+<dd><p>return a list which contains all the available rotation models</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel.reconstruct">
+<span class="sig-name descname"><span class="pre">reconstruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lons</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel.reconstruct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel.reconstruct" title="Link to this definition"></a></dt>
+<dd><p>reconstruct a list of lats and lons to age</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>for example, {‘lats’:[1.1,2.2], ‘lons’:[2.1,2.3]}</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.reconstruct_shapely_points">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.plate_model.</span></span><span class="sig-name descname"><span class="pre">reconstruct_shapely_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gplates_ws_proxy.plate_model.PlateModel" title="gplates_ws_proxy.plate_model.PlateModel"><span class="pre">PlateModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Point</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Point</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#reconstruct_shapely_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.reconstruct_shapely_points" title="Link to this definition"></a></dt>
+<dd><p>reconstruct a list of shapely points to {time}Ma</p>
+</dd></dl>
+
 </section>
-<section id="gplates-ws-proxy-reconstruction-module">
-<h2>gplates_ws_proxy.reconstruction module<a class="headerlink" href="#gplates-ws-proxy-reconstruction-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.reconstruction">
+<span id="gplates-ws-proxy-reconstruction-module"></span><h2>gplates_ws_proxy.reconstruction module<a class="headerlink" href="#module-gplates_ws_proxy.reconstruction" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.reconstruction.get_paleo_coordinates">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.reconstruction.</span></span><span class="sig-name descname"><span class="pre">get_paleo_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SETON2012'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/reconstruction.html#get_paleo_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.reconstruction.get_paleo_coordinates" title="Link to this definition"></a></dt>
+<dd><p>convenient function to get paleo-coordinates at {age}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.reconstruction.reconstruct_points">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.reconstruction.</span></span><span class="sig-name descname"><span class="pre">reconstruct_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Point</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SETON2012'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/reconstruction.html#reconstruct_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.reconstruction.reconstruct_points" title="Link to this definition"></a></dt>
+<dd><p>get paleo-coordinates for a list of shapely points, return new shapely points</p>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-gplates_ws_proxy" title="Link to this heading"></a></h2>
 </section>
 </section>
 
