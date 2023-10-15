@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
 
+import os
 import sys
+from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 import shapely
 
 sys.path.insert(0, "../src/")
+from common import OUTPUT_DIR
+
 from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
+
+# dev test
+# export GWS_URL=http://localhost:18000/
+# micromamba run -n gplates-ws-example ./reconstruct_shapely_points.py
 
 
 def main():
@@ -47,9 +55,11 @@ def main():
         transform=ccrs.PlateCarree(),
     )
 
-    plt.show()
-    # fig.savefig(f"reconstruct-shapely-points.png", format="png")
+    # plt.show()
+    output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
+    fig.savefig(output_file)
     plt.close()
+    print(f"Done! The {output_file} has been saved .")
 
 
 if __name__ == "__main__":
