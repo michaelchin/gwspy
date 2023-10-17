@@ -5,7 +5,9 @@ import shapely
 
 from . import _auth as a
 from ._auth import auth
+from .paleoearth import get_paleo_labels
 from .reconstruction import get_paleo_coordinates, reconstruct_points
+from .topology import get_subduction_zones
 
 
 class PlateModel:
@@ -49,6 +51,16 @@ class PlateModel:
         :returns: for example, {'lats':[1.1,2.2], 'lons':[2.1,2.3]}
         """
         return get_paleo_coordinates(lats, lons, age, model=self.name, pids=pids)
+
+    def get_paleo_labels(self):
+        """get a list of paleo-labels
+
+        :returns: a dict object, {"names": names, "lons": lons, "lats": lats}
+        """
+        return get_paleo_labels()
+
+    def get_subduction_zones(self, time):
+        return get_subduction_zones(self.name, time)
 
 
 def reconstruct_shapely_points(

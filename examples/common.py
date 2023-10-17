@@ -28,9 +28,9 @@ def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=14
     ax.add_geometries(
         coastlines_shapely,
         crs=ccrs.PlateCarree(),
-        facecolor="lime",
-        edgecolor="black",
-        alpha=0.8,
+        facecolor="grey",
+        edgecolor="none",
+        alpha=0.5,
     )
     return ax
 
