@@ -76,7 +76,9 @@
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_auth</span> <span class="k">as</span> <span class="n">a</span>
 <span class="kn">from</span> <span class="nn">._auth</span> <span class="kn">import</span> <span class="n">auth</span>
+<span class="kn">from</span> <span class="nn">.paleoearth</span> <span class="kn">import</span> <span class="n">get_paleo_labels</span>
 <span class="kn">from</span> <span class="nn">.reconstruction</span> <span class="kn">import</span> <span class="n">get_paleo_coordinates</span><span class="p">,</span> <span class="n">reconstruct_points</span>
+<span class="kn">from</span> <span class="nn">.topology</span> <span class="kn">import</span> <span class="n">get_subduction_zones</span>
 
 
 <div class="viewcode-block" id="PlateModel">
@@ -130,6 +132,22 @@
 <span class="sd">        :returns: for example, {&#39;lats&#39;:[1.1,2.2], &#39;lons&#39;:[2.1,2.3]}</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">get_paleo_coordinates</span><span class="p">(</span><span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">pids</span><span class="o">=</span><span class="n">pids</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PlateModel.get_paleo_labels">
+<a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_paleo_labels">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_paleo_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;get a list of paleo-labels</span>
+
+<span class="sd">        :returns: a dict object, {&quot;names&quot;: names, &quot;lons&quot;: lons, &quot;lats&quot;: lats}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">get_paleo_labels</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PlateModel.get_subduction_zones">
+<a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_subduction_zones">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_subduction_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">get_subduction_zones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span></div>
 </div>
 
 

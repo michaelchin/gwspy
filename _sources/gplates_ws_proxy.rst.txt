@@ -36,10 +36,58 @@ gplates\_ws\_proxy.plate\_model module
    :undoc-members:
    :show-inheritance:
 
+gplates\_ws\_proxy.quaternions module
+-------------------------------------
+
+.. automodule:: gplates_ws_proxy.quaternions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 gplates\_ws\_proxy.reconstruction module
 ----------------------------------------
 
 .. automodule:: gplates_ws_proxy.reconstruction
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gplates\_ws\_proxy.resample\_line module
+----------------------------------------
+
+.. automodule:: gplates_ws_proxy.resample_line
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gplates\_ws\_proxy.rotation module
+----------------------------------
+
+.. automodule:: gplates_ws_proxy.rotation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gplates\_ws\_proxy.spherical\_triangle module
+---------------------------------------------
+
+.. automodule:: gplates_ws_proxy.spherical_triangle
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gplates\_ws\_proxy.subduction\_teeth module
+-------------------------------------------
+
+.. automodule:: gplates_ws_proxy.subduction_teeth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gplates\_ws\_proxy.topology module
+----------------------------------
+
+.. automodule:: gplates_ws_proxy.topology
    :members:
    :undoc-members:
    :show-inheritance:

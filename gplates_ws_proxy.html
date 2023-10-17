@@ -60,9 +60,29 @@
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.plate_model.reconstruct_shapely_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_shapely_points()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.quaternions">gplates_ws_proxy.quaternions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.axis_angle_to_quat"><code class="docutils literal notranslate"><span class="pre">axis_angle_to_quat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.cart_to_lat_lon"><code class="docutils literal notranslate"><span class="pre">cart_to_lat_lon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.lat_lon_to_cart"><code class="docutils literal notranslate"><span class="pre">lat_lon_to_cart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.quat_conjugate"><code class="docutils literal notranslate"><span class="pre">quat_conjugate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.quat_mult"><code class="docutils literal notranslate"><span class="pre">quat_mult()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.quat_to_axis_angle"><code class="docutils literal notranslate"><span class="pre">quat_to_axis_angle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.quat_vec_mult"><code class="docutils literal notranslate"><span class="pre">quat_vec_mult()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.quaternions.test_rotate"><code class="docutils literal notranslate"><span class="pre">test_rotate()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.reconstruction">gplates_ws_proxy.reconstruction module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.reconstruction.get_paleo_coordinates"><code class="docutils literal notranslate"><span class="pre">get_paleo_coordinates()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.reconstruction.reconstruct_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_points()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-resample-line-module">gplates_ws_proxy.resample_line module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-rotation-module">gplates_ws_proxy.rotation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-spherical-triangle-module">gplates_ws_proxy.spherical_triangle module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-subduction-teeth-module">gplates_ws_proxy.subduction_teeth module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.topology">gplates_ws_proxy.topology module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.topology.get_subduction_zones"><code class="docutils literal notranslate"><span class="pre">get_subduction_zones()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy">Module contents</a></li>
@@ -165,6 +185,22 @@ at other locations, be careful that some plotting packages might not work well w
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel.get_paleo_labels">
+<span class="sig-name descname"><span class="pre">get_paleo_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel.get_paleo_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel.get_paleo_labels" title="Link to this definition"></a></dt>
+<dd><p>get a list of paleo-labels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dict object, {“names”: names, “lons”: lons, “lats”: lats}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel.get_subduction_zones">
+<span class="sig-name descname"><span class="pre">get_subduction_zones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel.get_subduction_zones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel.get_subduction_zones" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="gplates_ws_proxy.plate_model.PlateModel.list_models">
 <span class="sig-name descname"><span class="pre">list_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/plate_model.html#PlateModel.list_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.plate_model.PlateModel.list_models" title="Link to this definition"></a></dt>
 <dd><p>return a list which contains all the available rotation models</p>
@@ -190,6 +226,67 @@ at other locations, be careful that some plotting packages might not work well w
 </dd></dl>
 
 </section>
+<section id="module-gplates_ws_proxy.quaternions">
+<span id="gplates-ws-proxy-quaternions-module"></span><h2>gplates_ws_proxy.quaternions module<a class="headerlink" href="#module-gplates_ws_proxy.quaternions" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.axis_angle_to_quat">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">axis_angle_to_quat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#axis_angle_to_quat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.axis_angle_to_quat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.cart_to_lat_lon">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">cart_to_lat_lon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#cart_to_lat_lon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.cart_to_lat_lon" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.lat_lon_to_cart">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">lat_lon_to_cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#lat_lon_to_cart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.lat_lon_to_cart" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.normalize">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.normalize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.quat_conjugate">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">quat_conjugate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#quat_conjugate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.quat_conjugate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.quat_mult">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">quat_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#quat_mult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.quat_mult" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.quat_to_axis_angle">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">quat_to_axis_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#quat_to_axis_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.quat_to_axis_angle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.quat_vec_mult">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">quat_vec_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#quat_vec_mult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.quat_vec_mult" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.quaternions.test_rotate">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.quaternions.</span></span><span class="sig-name descname"><span class="pre">test_rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/quaternions.html#test_rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.quaternions.test_rotate" title="Link to this definition"></a></dt>
+<dd><p>test rotate point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – point to be rotated (in lat,lon)</p></li>
+<li><p><strong>axis</strong> – rotation axis (in lat,lon)</p></li>
+<li><p><strong>angle</strong> – roation angle (in degrees)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new coordinates of the point (in lat,lon)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="module-gplates_ws_proxy.reconstruction">
 <span id="gplates-ws-proxy-reconstruction-module"></span><h2>gplates_ws_proxy.reconstruction module<a class="headerlink" href="#module-gplates_ws_proxy.reconstruction" title="Link to this heading"></a></h2>
 <dl class="py function">
@@ -202,6 +299,27 @@ at other locations, be careful that some plotting packages might not work well w
 <dt class="sig sig-object py" id="gplates_ws_proxy.reconstruction.reconstruct_points">
 <span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.reconstruction.</span></span><span class="sig-name descname"><span class="pre">reconstruct_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Point</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SETON2012'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/reconstruction.html#reconstruct_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.reconstruction.reconstruct_points" title="Link to this definition"></a></dt>
 <dd><p>get paleo-coordinates for a list of shapely points, return new shapely points</p>
+</dd></dl>
+
+</section>
+<section id="gplates-ws-proxy-resample-line-module">
+<h2>gplates_ws_proxy.resample_line module<a class="headerlink" href="#gplates-ws-proxy-resample-line-module" title="Link to this heading"></a></h2>
+</section>
+<section id="gplates-ws-proxy-rotation-module">
+<h2>gplates_ws_proxy.rotation module<a class="headerlink" href="#gplates-ws-proxy-rotation-module" title="Link to this heading"></a></h2>
+</section>
+<section id="gplates-ws-proxy-spherical-triangle-module">
+<h2>gplates_ws_proxy.spherical_triangle module<a class="headerlink" href="#gplates-ws-proxy-spherical-triangle-module" title="Link to this heading"></a></h2>
+</section>
+<section id="gplates-ws-proxy-subduction-teeth-module">
+<h2>gplates_ws_proxy.subduction_teeth module<a class="headerlink" href="#gplates-ws-proxy-subduction-teeth-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-gplates_ws_proxy.topology">
+<span id="gplates-ws-proxy-topology-module"></span><h2>gplates_ws_proxy.topology module<a class="headerlink" href="#module-gplates_ws_proxy.topology" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.topology.get_subduction_zones">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.topology.</span></span><span class="sig-name descname"><span class="pre">get_subduction_zones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/topology.html#get_subduction_zones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.topology.get_subduction_zones" title="Link to this definition"></a></dt>
+<dd><p>return subduction zones as geojson object</p>
 </dd></dl>
 
 </section>
