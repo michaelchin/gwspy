@@ -18,7 +18,7 @@ else:
     import sys
 
     # Important: you need to `pip uninstall -y gplates-ws-proxy`
-    sys.path.insert(0, "../..")
+    sys.path.insert(0, "../src")
     from gplates_ws_proxy import gplates
 
     print("GPLATES_PROXY_TEST_MODULE=false; testing gplates.py")

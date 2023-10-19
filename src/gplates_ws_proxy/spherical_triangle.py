@@ -1,7 +1,6 @@
 import math
 
-import quaternions
-import rotation
+from . import quaternions, rotation
 
 
 def get_third_vertex(point_a, point_b, height=0.05):

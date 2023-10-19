@@ -1,6 +1,6 @@
 import math
 
-import rotation
+from . import rotation
 
 
 def degree_to_radian(point):

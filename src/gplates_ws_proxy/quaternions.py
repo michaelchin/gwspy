@@ -3,6 +3,9 @@ import math
 
 def normalize(v, tolerance=0.00001):
     mag2 = sum(n * n for n in v)
+
+    assert not math.isclose(mag2, 0)  # the magnitude of vector cannot be zero.
+
     if abs(mag2 - 1.0) > tolerance:
         mag = math.sqrt(mag2)
         v = tuple(n / mag for n in v)

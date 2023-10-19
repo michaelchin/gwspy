@@ -1,6 +1,6 @@
 import math
 
-import quaternions
+from . import quaternions
 
 #
 # a collection of rotation related functions
