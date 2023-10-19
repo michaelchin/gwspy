@@ -29,7 +29,11 @@ def get_triangle(point_a, point_b, base_length, height, polarity):
         (point_b["lat"], point_b["lon"]),
     )
 
-    lat, lon = rotation.rotate((point_a["lat"], point_a["lon"]), axis, base_length)
+    if not base_length:
+        lat = point_b["lat"]
+        lon = point_b["lon"]
+    else:
+        lat, lon = rotation.rotate((point_a["lat"], point_a["lon"]), axis, base_length)
     _height = height
     if polarity == Polarity.RIGHT:
         _height = -height
@@ -111,9 +115,7 @@ def get_subduction_teeth(
 
     first_vertex = {"lon": lons[0], "lat": lats[0]}
 
-    pp, ll = sample_next_point(
-        list(zip(lats, lons)), base_length + spacing, strict=True
-    )
+    pp, ll = sample_next_point(list(zip(lats, lons)), base_length, strict=True)
     triangles = []
     while pp:
         second_vertex = {"lon": pp[1], "lat": pp[0]}
@@ -121,7 +123,7 @@ def get_subduction_teeth(
             get_triangle(
                 first_vertex,
                 second_vertex,
-                base_length,
+                None,  # base_length
                 height,
                 polarity,
             )
@@ -131,7 +133,7 @@ def get_subduction_teeth(
                 get_triangle(
                     first_vertex,
                     second_vertex,
-                    base_length,
+                    None,  # base_length
                     height,
                     Polarity.LEFT,
                 )
@@ -140,14 +142,17 @@ def get_subduction_teeth(
                 get_triangle(
                     first_vertex,
                     second_vertex,
-                    base_length,
+                    None,  # base_length
                     height,
                     Polarity.RIGHT,
                 )
             )
 
-        pp, ll = sample_next_point(ll, base_length + spacing, strict=True)
-        first_vertex = second_vertex
+        pp, ll = sample_next_point(ll, spacing, strict=True)
+        if not pp:
+            break
+        first_vertex = {"lon": pp[1], "lat": pp[0]}
+        pp, ll = sample_next_point(ll, base_length, strict=True)
 
     _triangles = []
     if central_meridian is not None:
