@@ -107,7 +107,7 @@
 
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">.</span><span class="n">rotate</span><span class="p">((</span><span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> <span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]),</span> <span class="n">axis</span><span class="p">,</span> <span class="n">base_length</span><span class="p">)</span>
     <span class="n">_height</span> <span class="o">=</span> <span class="n">height</span>
-    <span class="k">if</span> <span class="n">polarity</span> <span class="o">==</span> <span class="n">Polarity</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">polarity</span> <span class="o">==</span> <span class="n">Polarity</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
         <span class="n">_height</span> <span class="o">=</span> <span class="o">-</span><span class="n">height</span>
     <span class="n">point_c</span> <span class="o">=</span> <span class="n">get_third_vertex</span><span class="p">(</span>
         <span class="n">point_a</span><span class="p">,</span>
@@ -205,6 +205,26 @@
                 <span class="n">polarity</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="p">)</span>
+        <span class="k">if</span> <span class="n">polarity</span> <span class="o">==</span> <span class="n">Polarity</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">:</span>
+            <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">get_triangle</span><span class="p">(</span>
+                    <span class="n">first_vertex</span><span class="p">,</span>
+                    <span class="n">second_vertex</span><span class="p">,</span>
+                    <span class="n">base_length</span><span class="p">,</span>
+                    <span class="n">height</span><span class="p">,</span>
+                    <span class="n">Polarity</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">get_triangle</span><span class="p">(</span>
+                    <span class="n">first_vertex</span><span class="p">,</span>
+                    <span class="n">second_vertex</span><span class="p">,</span>
+                    <span class="n">base_length</span><span class="p">,</span>
+                    <span class="n">height</span><span class="p">,</span>
+                    <span class="n">Polarity</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
         <span class="n">pp</span><span class="p">,</span> <span class="n">ll</span> <span class="o">=</span> <span class="n">sample_next_point</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">base_length</span> <span class="o">+</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">first_vertex</span> <span class="o">=</span> <span class="n">second_vertex</span>
 
