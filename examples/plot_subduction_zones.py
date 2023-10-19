@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-import math
 import sys
-from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
@@ -17,9 +15,15 @@ from gplates_ws_proxy import plate_model, subduction_teeth
 # micromamba run -n gplates-ws-example ./plot_subduction_zones.py
 
 
-def plot_teeth(ax, lons, lats):
+def plot_teeth(ax, lons, lats, polarity):
     teeth = subduction_teeth.get_subduction_teeth_in_degrees(
-        lons, lats, base_length=2, spacing=1, height=2, central_meridian=0
+        lons,
+        lats,
+        base_length=2,
+        spacing=1,
+        height=2,
+        polarity=polarity,
+        central_meridian=0,
     )
     for tooth in teeth:
         x = [t["lon"] for t in tooth]
@@ -40,18 +44,25 @@ def main():
 
     for feature in subduction_zones["features"]:
         geom = feature["geometry"]
+        polarity = subduction_teeth.Polarity.UNKNOWN
+        _polarity = feature["properties"]["polarity"]
+        if _polarity.lower() == "right":
+            polarity = subduction_teeth.Polarity.RIGHT
+        elif _polarity.lower() == "left":
+            polarity = subduction_teeth.Polarity.LEFT
+
         if geom["type"] == "LineString":
             lats = [lon_lat[1] for lon_lat in geom["coordinates"]]
             lons = [lon_lat[0] for lon_lat in geom["coordinates"]]
             ax.plot(lons, lats, transform=ccrs.PlateCarree())
-            plot_teeth(ax, lons, lats)
+            plot_teeth(ax, lons, lats, polarity)
 
         elif geom["type"] == "MultiLineString":
             for line in geom["coordinates"]:
                 lats = [lon_lat[1] for lon_lat in line]
                 lons = [lon_lat[0] for lon_lat in line]
                 ax.plot(lons, lats, transform=ccrs.PlateCarree())
-                plot_teeth(ax, lons, lats)
+                plot_teeth(ax, lons, lats, polarity)
 
     plt.title(f"{time} Ma", fontsize=20)
 

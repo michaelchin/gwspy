@@ -31,7 +31,7 @@ def get_triangle(point_a, point_b, base_length, height, polarity):
 
     lat, lon = rotation.rotate((point_a["lat"], point_a["lon"]), axis, base_length)
     _height = height
-    if polarity == Polarity.LEFT:
+    if polarity == Polarity.RIGHT:
         _height = -height
     point_c = get_third_vertex(
         point_a,
@@ -126,6 +126,26 @@ def get_subduction_teeth(
                 polarity,
             )
         )
+        if polarity == Polarity.UNKNOWN:
+            triangles.append(
+                get_triangle(
+                    first_vertex,
+                    second_vertex,
+                    base_length,
+                    height,
+                    Polarity.LEFT,
+                )
+            )
+            triangles.append(
+                get_triangle(
+                    first_vertex,
+                    second_vertex,
+                    base_length,
+                    height,
+                    Polarity.RIGHT,
+                )
+            )
+
         pp, ll = sample_next_point(ll, base_length + spacing, strict=True)
         first_vertex = second_vertex
 
