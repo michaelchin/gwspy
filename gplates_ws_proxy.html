@@ -50,6 +50,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.coastlines.get_paleo_coastlines"><code class="docutils literal notranslate"><span class="pre">get_paleo_coastlines()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.geometry_utils">gplates_ws_proxy.geometry_utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline"><code class="docutils literal notranslate"><span class="pre">test_line_segment_cross_dateline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline_in_degrees"><code class="docutils literal notranslate"><span class="pre">test_line_segment_cross_dateline_in_degrees()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.gplates">gplates_ws_proxy.gplates module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.paleoearth">gplates_ws_proxy.paleoearth module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.paleoearth.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">get_paleo_labels()</span></code></a></li>
@@ -77,10 +82,37 @@
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.reconstruction.reconstruct_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_points()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-resample-line-module">gplates_ws_proxy.resample_line module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-rotation-module">gplates_ws_proxy.rotation module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-spherical-triangle-module">gplates_ws_proxy.spherical_triangle module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gplates-ws-proxy-subduction-teeth-module">gplates_ws_proxy.subduction_teeth module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.resample_line">gplates_ws_proxy.resample_line module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.resample_line.degree_to_radian"><code class="docutils literal notranslate"><span class="pre">degree_to_radian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.resample_line.radian_to_degree"><code class="docutils literal notranslate"><span class="pre">radian_to_degree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.resample_line.resample_line"><code class="docutils literal notranslate"><span class="pre">resample_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.resample_line.sample_next_point"><code class="docutils literal notranslate"><span class="pre">sample_next_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.rotation">gplates_ws_proxy.rotation module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.cross"><code class="docutils literal notranslate"><span class="pre">cross()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.distance"><code class="docutils literal notranslate"><span class="pre">distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.dot"><code class="docutils literal notranslate"><span class="pre">dot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.find_axis_and_angle"><code class="docutils literal notranslate"><span class="pre">find_axis_and_angle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.interp_two_points"><code class="docutils literal notranslate"><span class="pre">interp_two_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.km_to_radian"><code class="docutils literal notranslate"><span class="pre">km_to_radian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.radian_distance"><code class="docutils literal notranslate"><span class="pre">radian_distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.radian_to_km"><code class="docutils literal notranslate"><span class="pre">radian_to_km()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.rotation.sample_between_two_points"><code class="docutils literal notranslate"><span class="pre">sample_between_two_points()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.spherical_triangle">gplates_ws_proxy.spherical_triangle module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.spherical_triangle.get_third_vertex"><code class="docutils literal notranslate"><span class="pre">get_third_vertex()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.subduction_teeth">gplates_ws_proxy.subduction_teeth module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.subduction_teeth.Polarity"><code class="docutils literal notranslate"><span class="pre">Polarity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.subduction_teeth.get_subduction_teeth"><code class="docutils literal notranslate"><span class="pre">get_subduction_teeth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.subduction_teeth.get_subduction_teeth_in_degrees"><code class="docutils literal notranslate"><span class="pre">get_subduction_teeth_in_degrees()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.subduction_teeth.get_triangle"><code class="docutils literal notranslate"><span class="pre">get_triangle()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.topology">gplates_ws_proxy.topology module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.topology.get_subduction_zones"><code class="docutils literal notranslate"><span class="pre">get_subduction_zones()</span></code></a></li>
 </ul>
@@ -152,6 +184,22 @@ at other locations, be careful that some plotting packages might not work well w
 <dd class="field-odd"><p>geojson</p>
 </dd>
 </dl>
+</dd></dl>
+
+</section>
+<section id="module-gplates_ws_proxy.geometry_utils">
+<span id="gplates-ws-proxy-geometry-utils-module"></span><h2>gplates_ws_proxy.geometry_utils module<a class="headerlink" href="#module-gplates_ws_proxy.geometry_utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.geometry_utils.</span></span><span class="sig-name descname"><span class="pre">test_line_segment_cross_dateline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/geometry_utils.html#test_line_segment_cross_dateline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline" title="Link to this definition"></a></dt>
+<dd><p>Return True if the line segment cross dateline, otherwise False.
+All parameters are in radians.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline_in_degrees">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.geometry_utils.</span></span><span class="sig-name descname"><span class="pre">test_line_segment_cross_dateline_in_degrees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/geometry_utils.html#test_line_segment_cross_dateline_in_degrees"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline_in_degrees" title="Link to this definition"></a></dt>
+<dd><p>same as test_line_segment_cross_dateline except all arguments are in degrees</p>
 </dd></dl>
 
 </section>
@@ -302,17 +350,370 @@ at other locations, be careful that some plotting packages might not work well w
 </dd></dl>
 
 </section>
-<section id="gplates-ws-proxy-resample-line-module">
-<h2>gplates_ws_proxy.resample_line module<a class="headerlink" href="#gplates-ws-proxy-resample-line-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.resample_line">
+<span id="gplates-ws-proxy-resample-line-module"></span><h2>gplates_ws_proxy.resample_line module<a class="headerlink" href="#module-gplates_ws_proxy.resample_line" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.resample_line.degree_to_radian">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.resample_line.</span></span><span class="sig-name descname"><span class="pre">degree_to_radian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/resample_line.html#degree_to_radian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.resample_line.degree_to_radian" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.resample_line.radian_to_degree">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.resample_line.</span></span><span class="sig-name descname"><span class="pre">radian_to_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/resample_line.html#radian_to_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.resample_line.radian_to_degree" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.resample_line.resample_line">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.resample_line.</span></span><span class="sig-name descname"><span class="pre">resample_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/resample_line.html#resample_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.resample_line.resample_line" title="Link to this definition"></a></dt>
+<dd><p>resample a line.
+:param line: a list of (lat, lon) in radians
+:param distance: the distance of the adjacent points
+:param strict: in strict mode, we guarantee the distance. sacrifice the end point if necessary</p>
+<blockquote>
+<div><p>in unstrict mode, we always keep the end point</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the new line
+a list of (lat, lon) in radians. If the input line is shorter than distance, in strict mode, return []</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.resample_line.sample_next_point">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.resample_line.</span></span><span class="sig-name descname"><span class="pre">sample_next_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accum_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/resample_line.html#sample_next_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.resample_line.sample_next_point" title="Link to this definition"></a></dt>
+<dd><p>recursive function to sample point one by one
+:param line: a list of (lat, lon) in radians
+:param distance: the distance to the next point
+:param strict: in strict mode, we guarantee the distance. sacrifice the end point if necessary
+:accum_length: parameter to pass down the accumulated length for this recursive function
+:returns: (next point, new line)</p>
+<blockquote>
+<div><p>next point (lat,lon) in radians. None, if no more point
+new line – the line after taking out this point</p>
+</div></blockquote>
+</dd></dl>
+
 </section>
-<section id="gplates-ws-proxy-rotation-module">
-<h2>gplates_ws_proxy.rotation module<a class="headerlink" href="#gplates-ws-proxy-rotation-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.rotation">
+<span id="gplates-ws-proxy-rotation-module"></span><h2>gplates_ws_proxy.rotation module<a class="headerlink" href="#module-gplates_ws_proxy.rotation" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.cross">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">cross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#cross"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.cross" title="Link to this definition"></a></dt>
+<dd><p>cross product of two vectors defined only in three-dimensional space
+<a class="reference external" href="https://www.mathsisfun.com/algebra/vectors-cross-product.html">https://www.mathsisfun.com/algebra/vectors-cross-product.html</a>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Cross_product#Computing">https://en.wikipedia.org/wiki/Cross_product#Computing</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – 3D vector, such as [1,2,3]</p></li>
+<li><p><strong>b</strong> – 3D vector, such as [234]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cross product 3D vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.distance">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6378.14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.distance" title="Link to this definition"></a></dt>
+<dd><p>calculate the distance between to points (lat, lon) in radians
+return the distance in km</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> – point a (lat, lon) in radians</p></li>
+<li><p><strong>point_b</strong> – point b (lat, lon) in radians</p></li>
+<li><p><strong>earth_radius</strong> – earth radius</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>distance in km</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.dot">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#dot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.dot" title="Link to this definition"></a></dt>
+<dd><p>dot product of two vectors
+<a class="reference external" href="https://www.mathsisfun.com/algebra/vectors-dot-product.html">https://www.mathsisfun.com/algebra/vectors-dot-product.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – a vector, such as [1,2,3,4,5] (must be the same length with b)</p></li>
+<li><p><strong>b</strong> – a vector, such as [6,7,8,9,10] (must be the same length with a)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dot product (a number)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.find_axis_and_angle">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">find_axis_and_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#find_axis_and_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.find_axis_and_angle" title="Link to this definition"></a></dt>
+<dd><p>given two points point_a and point_b in (lat, lon) format in radians,
+return axis(lat, lon) and angle in radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> – point a (lat, lon) in radians</p></li>
+<li><p><strong>point_b</strong> – point b (lat, lon) in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>axis(lat, lon) in radians; angle in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.interp_two_points">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">interp_two_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#interp_two_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.interp_two_points" title="Link to this definition"></a></dt>
+<dd><p>interpolate between two points(in radians) along the great circle
+return a list of interpolated points (lat, lon) in radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> – point a (lat, lon) in radians</p></li>
+<li><p><strong>point_b</strong> – point b (lat, lon) in radians</p></li>
+<li><p><strong>num</strong> – the number of segments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of interpolated points (lat, lon) in radians
+the return list has num+1 points(num segments)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.km_to_radian">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">km_to_radian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">km</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6378.14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#km_to_radian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.km_to_radian" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.radian_distance">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">radian_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#radian_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.radian_distance" title="Link to this definition"></a></dt>
+<dd><p>calculate the distance between to points (lat, lon) in radians
+return the distance in radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> – point a (lat, lon) in radians</p></li>
+<li><p><strong>point_b</strong> – point b (lat, lon) in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>distance in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.radian_to_km">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">radian_to_km</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radian</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6378.14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#radian_to_km"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.radian_to_km" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.rotate">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.rotate" title="Link to this definition"></a></dt>
+<dd><p>rotate a point by axis and angle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – (lat, lon) in radians</p></li>
+<li><p><strong>axis</strong> – (lat, lon) in radians</p></li>
+<li><p><strong>angle</strong> – in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new point(lat, lon) in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.rotation.sample_between_two_points">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.rotation.</span></span><span class="sig-name descname"><span class="pre">sample_between_two_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances_to_point_a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/rotation.html#sample_between_two_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.rotation.sample_between_two_points" title="Link to this definition"></a></dt>
+<dd><p>sample points between two points along the great circle according to a list of distances to point a</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> – point a (lat, lon) in radians</p></li>
+<li><p><strong>point_b</strong> – point b (lat, lon) in radians</p></li>
+<li><p><strong>distances_to_point_a</strong> – a list of distances(in radians) to point a.
+the distance must less than the distance between point a and point b.
+invalid distances will produce Nones in the return list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of sampled points (lat, lon) in radians.
+The return list has the same length with the list of distances_to_point_a.
+point_a and point_b will not be included.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="gplates-ws-proxy-spherical-triangle-module">
-<h2>gplates_ws_proxy.spherical_triangle module<a class="headerlink" href="#gplates-ws-proxy-spherical-triangle-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.spherical_triangle">
+<span id="gplates-ws-proxy-spherical-triangle-module"></span><h2>gplates_ws_proxy.spherical_triangle module<a class="headerlink" href="#module-gplates_ws_proxy.spherical_triangle" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.spherical_triangle.get_third_vertex">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.spherical_triangle.</span></span><span class="sig-name descname"><span class="pre">get_third_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/spherical_triangle.html#get_third_vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.spherical_triangle.get_third_vertex" title="Link to this definition"></a></dt>
+<dd><p>Given two points, get third point of triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Params point_a<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{“lon”: lon, “lat”: lat} in radian</p>
+</dd>
+<dt class="field-even">Params point_b<span class="colon">:</span></dt>
+<dd class="field-even"><p>{“lon”: lon, “lat”: lat} in radian</p>
+</dd>
+<dt class="field-odd">Params height<span class="colon">:</span></dt>
+<dd class="field-odd"><p>in radian</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>{“lon”: lon, “lat”: lat} in radian</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="gplates-ws-proxy-subduction-teeth-module">
-<h2>gplates_ws_proxy.subduction_teeth module<a class="headerlink" href="#gplates-ws-proxy-subduction-teeth-module" title="Link to this heading"></a></h2>
+<section id="module-gplates_ws_proxy.subduction_teeth">
+<span id="gplates-ws-proxy-subduction-teeth-module"></span><h2>gplates_ws_proxy.subduction_teeth module<a class="headerlink" href="#module-gplates_ws_proxy.subduction_teeth" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.Polarity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.subduction_teeth.</span></span><span class="sig-name descname"><span class="pre">Polarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/subduction_teeth.html#Polarity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.Polarity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.Polarity.LEFT">
+<span class="sig-name descname"><span class="pre">LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.Polarity.LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.Polarity.RIGHT">
+<span class="sig-name descname"><span class="pre">RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.Polarity.RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.Polarity.UNKNOWN">
+<span class="sig-name descname"><span class="pre">UNKNOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.Polarity.UNKNOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.get_subduction_teeth">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.subduction_teeth.</span></span><span class="sig-name descname"><span class="pre">get_subduction_teeth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gplates_ws_proxy.subduction_teeth.Polarity" title="gplates_ws_proxy.subduction_teeth.Polarity"><span class="pre">Polarity</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Polarity.UNKNOWN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geojson</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_degrees</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/subduction_teeth.html#get_subduction_teeth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.get_subduction_teeth" title="Link to this definition"></a></dt>
+<dd><p>return a list of triangle polygons for given polyline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Params lons<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of lons (in radian)</p>
+</dd>
+<dt class="field-even">Params lats<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of lats (in radian)</p>
+</dd>
+<dt class="field-odd">Params base_length<span class="colon">:</span></dt>
+<dd class="field-odd"><p>base length of triangle (in radian)</p>
+</dd>
+<dt class="field-even">Params spacing<span class="colon">:</span></dt>
+<dd class="field-even"><p>space between triangles (in radian)</p>
+</dd>
+<dt class="field-odd">Params height<span class="colon">:</span></dt>
+<dd class="field-odd"><p>triangle height (in radian)</p>
+</dd>
+<dt class="field-even">Params polarity<span class="colon">:</span></dt>
+<dd class="field-even"><p>the polarity of this subduction zone (left or right)</p>
+</dd>
+<dt class="field-odd">Params geojson<span class="colon">:</span></dt>
+<dd class="field-odd"><p>if set True, return data in geojson format</p>
+</dd>
+<dt class="field-even">Params return_degrees<span class="colon">:</span></dt>
+<dd class="field-even"><p>if set True, return coordinates in degrees</p>
+</dd>
+<dt class="field-odd">Params central_meridian<span class="colon">:</span></dt>
+<dd class="field-odd"><p>if set, omit triangles cross dateline (in radian)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>[[{‘lon’:lon, ‘lat’:lat}, {‘lon’:lon, ‘lat’:lat}, {‘lon’:lon, ‘lat’:lat}],…]
+or {</p>
+<blockquote>
+<div><blockquote>
+<div><p>”type”: “GeometryCollection”,
+“geometries”:
+[</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“type”: “Polygon”,
+“coordinates”:
+[</p>
+<blockquote>
+<div><dl class="simple">
+<dt>[</dt><dd><p>[100.0, 0.0], [101.0, 0.0], [101.0, 1.0],</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>”type”: “Polygon”,
+“coordinates”:
+[</p>
+<blockquote>
+<div><dl class="simple">
+<dt>[</dt><dd><p>[110.0, 10.0], [10.0, 10.0], [101.0, 10.0],</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.get_subduction_teeth_in_degrees">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.subduction_teeth.</span></span><span class="sig-name descname"><span class="pre">get_subduction_teeth_in_degrees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gplates_ws_proxy.subduction_teeth.Polarity" title="gplates_ws_proxy.subduction_teeth.Polarity"><span class="pre">Polarity</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Polarity.UNKNOWN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geojson</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_meridian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/subduction_teeth.html#get_subduction_teeth_in_degrees"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.get_subduction_teeth_in_degrees" title="Link to this definition"></a></dt>
+<dd><p>same as get_subduction_teeth, just everything is in degrees</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.subduction_teeth.get_triangle">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.subduction_teeth.</span></span><span class="sig-name descname"><span class="pre">get_triangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/subduction_teeth.html#get_triangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.subduction_teeth.get_triangle" title="Link to this definition"></a></dt>
+<dd><p>return a triangle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Params point_a<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{“lon”: lon, “lat”: lat} in radian</p>
+</dd>
+<dt class="field-even">Params point_b<span class="colon">:</span></dt>
+<dd class="field-even"><p>{“lon”: lon, “lat”: lat} in radian</p>
+</dd>
+<dt class="field-odd">Params base_length<span class="colon">:</span></dt>
+<dd class="field-odd"><p>triangle base length</p>
+</dd>
+<dt class="field-even">Params polarity<span class="colon">:</span></dt>
+<dd class="field-even"><p>subduction polarity</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-gplates_ws_proxy.topology">
 <span id="gplates-ws-proxy-topology-module"></span><h2>gplates_ws_proxy.topology module<a class="headerlink" href="#module-gplates_ws_proxy.topology" title="Link to this heading"></a></h2>

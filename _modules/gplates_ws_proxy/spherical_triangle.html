@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gplates_ws_proxy.spherical_triangle &mdash; gplates-ws-proxy 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=292eb321"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            gplates-ws-proxy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">gplates_ws_proxy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gplates-ws-proxy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">gplates_ws_proxy.spherical_triangle</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for gplates_ws_proxy.spherical_triangle</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">quaternions</span><span class="p">,</span> <span class="n">rotation</span>
+
+
+<div class="viewcode-block" id="get_third_vertex">
+<a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.spherical_triangle.get_third_vertex">[docs]</a>
+<span class="k">def</span> <span class="nf">get_third_vertex</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given two points, get third point of triangle.</span>
+
+<span class="sd">    :params point_a: {&quot;lon&quot;: lon, &quot;lat&quot;: lat} in radian</span>
+<span class="sd">    :params point_b: {&quot;lon&quot;: lon, &quot;lat&quot;: lat} in radian</span>
+<span class="sd">    :params height: in radian</span>
+
+<span class="sd">    :returns: {&quot;lon&quot;: lon, &quot;lat&quot;: lat} in radian</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span>
+        <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">],</span> <span class="n">point_b</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+        <span class="ow">and</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> <span class="n">point_b</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="n">PA_xyz</span> <span class="o">=</span> <span class="n">quaternions</span><span class="o">.</span><span class="n">lat_lon_to_cart</span><span class="p">(</span><span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> <span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+    <span class="n">PB_xyz</span> <span class="o">=</span> <span class="n">quaternions</span><span class="o">.</span><span class="n">lat_lon_to_cart</span><span class="p">(</span><span class="n">point_b</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> <span class="n">point_b</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+
+    <span class="c1"># another method to get middle point</span>
+    <span class="n">AB_middle_xyz</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">PA_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">PB_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">PA_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">PB_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">PA_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">PB_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">AB_middle_xyz</span> <span class="o">=</span> <span class="n">quaternions</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">AB_middle_xyz</span><span class="p">)</span>
+    <span class="n">middle_lat</span><span class="p">,</span> <span class="n">middle_lon</span> <span class="o">=</span> <span class="n">quaternions</span><span class="o">.</span><span class="n">cart_to_lat_lon</span><span class="p">(</span>
+        <span class="n">AB_middle_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">AB_middle_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">AB_middle_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    # get middle point</span>
+<span class="sd">    axis, angle = rotation.find_axis_and_angle(</span>
+<span class="sd">        [PA_lon_lat[1], PA_lon_lat[0]], [PB_lon_lat[1], PB_lon_lat[0]]</span>
+<span class="sd">    )</span>
+<span class="sd">    middle_lat, middle_lon = rotation.rotate(</span>
+<span class="sd">        [PA_lon_lat[1], PA_lon_lat[0]], axis, angle / 2.0</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># get rotation pole</span>
+    <span class="n">AB</span> <span class="o">=</span> <span class="p">(</span><span class="n">PA_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">PB_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">PA_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">PB_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">PA_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">PB_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">AB</span> <span class="o">=</span> <span class="n">quaternions</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">AB</span><span class="p">)</span>
+    <span class="n">pole_lat</span><span class="p">,</span> <span class="n">pole_lon</span> <span class="o">=</span> <span class="n">quaternions</span><span class="o">.</span><span class="n">cart_to_lat_lon</span><span class="p">(</span><span class="n">AB</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">AB</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">AB</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">middle_lat</span><span class="p">,</span> <span class="n">middle_lon</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">pole_lat</span><span class="p">,</span> <span class="n">pole_lon</span><span class="p">],</span>
+        <span class="n">height</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">lon</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">lat</span><span class="p">}</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">121.0</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">}</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">121.0</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">15.0</span><span class="p">}</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ring.gmt&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">360</span><span class="p">):</span>
+            <span class="n">third_vertex</span> <span class="o">=</span> <span class="n">get_third_vertex</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]),</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])},</span>
+                <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]),</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])},</span>
+                <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">third_vertex</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">third_vertex</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Michael Chin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

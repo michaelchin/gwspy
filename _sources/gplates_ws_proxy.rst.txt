@@ -12,6 +12,14 @@ gplates\_ws\_proxy.coastlines module
    :undoc-members:
    :show-inheritance:
 
+gplates\_ws\_proxy.geometry\_utils module
+-----------------------------------------
+
+.. automodule:: gplates_ws_proxy.geometry_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 gplates\_ws\_proxy.gplates module
 ---------------------------------
 
