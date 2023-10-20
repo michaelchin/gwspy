@@ -37,6 +37,6 @@ def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=14
 
 def save_fig(filename):
     output_file = f"{OUTPUT_DIR}/{Path(filename).stem}.png"
-    plt.gcf().savefig(output_file, dpi=120)
+    plt.gcf().savefig(output_file, dpi=120, bbox_inches="tight")  # transparent=True)
     print(f"Done! The {output_file} has been saved.")
     plt.close(plt.gcf())
