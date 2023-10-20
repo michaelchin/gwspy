@@ -25,7 +25,8 @@ def main():
     points = [shapely.Point(x, y) for x, y in zip(lons, lats)]
 
     model = PlateModel("Muller2019")
-    paleo_points = reconstruct_shapely_points(model, points, 100)
+    time = 100
+    paleo_points = reconstruct_shapely_points(model, points, time)
     print(paleo_points)
 
     # plot the points
@@ -54,12 +55,13 @@ def main():
         color="red",
         transform=ccrs.PlateCarree(),
     )
+    plt.title(f"{time} Ma", fontsize=20)
 
     # plt.show()
     output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
-    fig.savefig(output_file)
+    fig.savefig(output_file, bbox_inches="tight")
     plt.close()
-    print(f"Done! The {output_file} has been saved .")
+    print(f"Done! The {output_file} has been saved.")
 
 
 if __name__ == "__main__":

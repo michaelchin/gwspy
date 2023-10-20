@@ -11,6 +11,7 @@ This Python package allows users to access [GPlates Web Service](https://gwsdoc.
 The following Python code reconstructs three locations to 100Ma with Muller2019 reconstruction model.
 
 ```python
+  # pip install gplates-ws-proxy shapely
   import shapely
   from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
 
