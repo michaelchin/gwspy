@@ -32,9 +32,9 @@ def main():
     ax.add_geometries(
         coastlines_shapely,
         crs=ccrs.PlateCarree(),
-        facecolor="lime",
-        edgecolor="black",
-        alpha=0.8,
+        facecolor="lightgrey",
+        edgecolor="lightgrey",
+        alpha=1,
     )
 
     for name, lon, lat in zip(labels["names"], labels["lons"], labels["lats"]):
@@ -54,7 +54,7 @@ def main():
 
     # plt.show()
     output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
-    fig.savefig(output_file, dpi=120)
+    fig.savefig(output_file, dpi=120, bbox_inches="tight")
     print(f"Done! The {output_file} has been saved .")
     plt.close(fig)
 
