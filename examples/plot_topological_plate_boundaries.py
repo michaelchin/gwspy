@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 
 import cartopy.crs as ccrs
@@ -14,7 +15,7 @@ from gplates_ws_proxy import PlateModel
 # micromamba run -n gplates-ws-example ./plot_topological_plate_boundaries.py
 
 
-def main():
+def main(show=True):
     model = PlateModel("Muller2019")
     time = 10
     topology_10 = model.get_topology(time)
@@ -34,9 +35,14 @@ def main():
         else:
             ax.plot(*line.xy, transform=ccrs.PlateCarree(), color="blue")
     plt.title(f"{time} Ma")
-    # plt.show()
-    save_fig(__file__)
+    if show:
+        plt.show()
+    else:
+        save_fig(__file__)
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) == 2 and sys.argv[1] == "save":
+        main(show=False)
+    else:
+        main(show=True)

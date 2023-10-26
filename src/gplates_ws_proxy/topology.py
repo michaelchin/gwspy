@@ -9,19 +9,30 @@ from .utils import geojson_to_shapely
 class Topology:
     def __init__(self, model_name, time):
         self.plate_polygons = None
+        self.plate_polygons_lines = None
         self.plate_boundaries = None
         self.model_name = model_name
         self.time = time
 
-    def get_plate_polygons(self, return_format="geojson"):
-        if self.plate_polygons is None:
-            self.plate_polygons = get_topological_plate_polygons(
-                self.model_name, self.time
-            )
-        if return_format.lower() == "geojson":
-            return self.plate_polygons
+    def get_plate_polygons(self, return_format="geojson", as_lines=False):
+        if not as_lines:
+            if self.plate_polygons is None:
+                self.plate_polygons = get_topological_plate_polygons(
+                    self.model_name, self.time
+                )
+            if return_format.lower() == "geojson":
+                return self.plate_polygons
+            else:
+                return geojson_to_shapely(self.plate_polygons)
         else:
-            return geojson_to_shapely(self.plate_polygons)
+            if self.plate_polygons_lines is None:
+                self.plate_polygons_lines = get_topological_plate_polygons(
+                    self.model_name, self.time, as_lines=True
+                )
+            if return_format.lower() == "geojson":
+                return self.plate_polygons_lines
+            else:
+                return geojson_to_shapely(self.plate_polygons_lines)
 
     def get_plate_boundaries(self, return_format="geojson"):
         if self.plate_boundaries is None:
@@ -103,7 +114,7 @@ def get_topological_plate_boundaries(model, time):
 
 
 @auth
-def get_topological_plate_polygons(model, time):
+def get_topological_plate_polygons(model, time, as_lines=False):
     """return topological plate polygons
 
     :params model: model name
@@ -116,6 +127,8 @@ def get_topological_plate_polygons(model, time):
     }
 
     params = {"time": time, "model": model}
+    if as_lines:
+        params["as_lines"] = True
 
     ret = requests.get(
         a.server_url + "/topology/plate_polygons/",
