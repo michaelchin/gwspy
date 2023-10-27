@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import sys
 from pathlib import Path
 
@@ -18,14 +17,15 @@ from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
 # micromamba run -n gplates-ws-example ./reconstruct_shapely_points.py
 
 
-def main():
+def main(show=True):
     lats = [50, 10, 50]
     lons = [-100, 160, 100]
 
     points = [shapely.Point(x, y) for x, y in zip(lons, lats)]
 
     model = PlateModel("Muller2019")
-    paleo_points = reconstruct_shapely_points(model, points, 100)
+    time = 100
+    paleo_points = reconstruct_shapely_points(model, points, time)
     print(paleo_points)
 
     # plot the points
@@ -54,13 +54,19 @@ def main():
         color="red",
         transform=ccrs.PlateCarree(),
     )
+    plt.title(f"{time} Ma", fontsize=20)
 
-    # plt.show()
-    output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
-    fig.savefig(output_file)
-    plt.close()
-    print(f"Done! The {output_file} has been saved .")
+    if show:
+        plt.show()
+    else:
+        output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
+        fig.savefig(output_file, bbox_inches="tight")
+        plt.close()
+        print(f"Done! The {output_file} has been saved.")
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) == 2 and sys.argv[1] == "save":
+        main(show=False)
+    else:
+        main(show=True)

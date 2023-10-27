@@ -32,7 +32,7 @@ def plot_teeth(ax, lons, lats, polarity):
         ax.fill(x, y, transform=ccrs.PlateCarree())
 
 
-def main():
+def main(show=True):
     time = 0
     model_name = "Merdith2021"
 
@@ -66,9 +66,14 @@ def main():
 
     plt.title(f"{time} Ma", fontsize=20)
 
-    # plt.show()
-    save_fig(__file__)
+    if show:
+        plt.show()
+    else:
+        save_fig(__file__)
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) == 2 and sys.argv[1] == "save":
+        main(show=False)
+    else:
+        main(show=True)

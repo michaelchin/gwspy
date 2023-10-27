@@ -2,12 +2,13 @@ import json
 
 import requests
 import shapely
+from shapely.geometry import shape
 
 from . import _auth as a
 from ._auth import auth
 from .paleoearth import get_paleo_labels
 from .reconstruction import get_paleo_coordinates, reconstruct_points
-from .topology import get_subduction_zones
+from .topology import Topology, get_subduction_zones
 
 
 class PlateModel:
@@ -61,6 +62,9 @@ class PlateModel:
 
     def get_subduction_zones(self, time):
         return get_subduction_zones(self.name, time)
+
+    def get_topology(self, time):
+        return Topology(self.name, time)
 
 
 def reconstruct_shapely_points(

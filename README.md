@@ -1,5 +1,8 @@
 # GPlates Web Service Python Client/Proxy
 
+![build badge](https://github.com/michaelchin/gplates-python-proxy/actions/workflows/build-doc.yml/badge.svg)
+[![PyPI version](https://badge.fury.io/py/gplates-ws-proxy.svg)](https://badge.fury.io/py/gplates-ws-proxy)
+
 This Python package allows users to access [GPlates Web Service](https://gwsdoc.gplates.org/) more easily via simple Python programming interface.
 
 ### Installation
@@ -11,6 +14,7 @@ This Python package allows users to access [GPlates Web Service](https://gwsdoc.
 The following Python code reconstructs three locations to 100Ma with Muller2019 reconstruction model.
 
 ```python
+  # pip install gplates-ws-proxy shapely
   import shapely
   from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
 
@@ -29,18 +33,29 @@ By default, https://gws.gplates.org is used. You can use .env file to specify yo
 
 See [env.template](src/gplates_ws_proxy/env.template) and [setup GWS server with Docker](https://github.com/GPlates/gplates-web-service/tree/master/docker#-quick-start).
 
+### Dependencies
+
+- [requests](https://pypi.org/project/requests/)
+- [shapely](https://pypi.org/project/shapely/)
+
+### API reference
+
+API reference can be found at https://michaelchin.github.io/gplates-python-proxy/.
+
 ### Examples
 
-👉 [paleo-coastlines movie](examples/paleo-coastlines.ipynb)
+👉 [reconstruct_shapely_points.py](examples/reconstruct_shapely_points.py)
 
-![paleo-coastlines movie](https://github.com/michaelchin/gplates-python-proxy/assets/2688316/11113728-967a-445c-9941-7b82523138ea)
+The red dots are present-day locations. The blue dots are paleo-locations at 100Ma.
 
-👉 [paleo-labels](examples/plot_paleo_labels.py)
+![reconstruct_shapely_points](/examples/output/reconstruct_shapely_points.png)
 
-![plot_paleo_labels](https://github.com/michaelchin/gplates-python-proxy/assets/2688316/5e3a1f6b-e1d7-4d9f-b2f8-967e530d3a8e)
+👉 [plot_subduction_zones.py](examples/plot_subduction_zones.py)
 
-👉 [subduction zones](examples/plot_subduction_zones.py)
+![plot_subduction_zones](examples/output/plot_subduction_zones.png)
 
-![plot_subduction_zones](https://github.com/michaelchin/gplates-python-proxy/assets/2688316/5b491f47-38df-4dd4-80c6-ded0e17fe965)
+👉 [plot_topological_plate_polygons.py](examples/plot_topological_plate_polygons.py)
+
+![plot_topological_plate_polygons](examples/output/plot_topological_plate_polygons.png)
 
 [All Examples](examples/readme.md)
