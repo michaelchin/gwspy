@@ -100,6 +100,14 @@ gplates\_ws\_proxy.topology module
    :undoc-members:
    :show-inheritance:
 
+gplates\_ws\_proxy.utils module
+-------------------------------
+
+.. automodule:: gplates_ws_proxy.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

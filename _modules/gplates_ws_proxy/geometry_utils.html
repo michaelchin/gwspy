@@ -71,6 +71,8 @@
   <h1>Source code for gplates_ws_proxy.geometry_utils</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">math</span>
 
+<span class="kn">from</span> <span class="nn">.rotation</span> <span class="kn">import</span> <span class="n">cross</span>
+
 
 <div class="viewcode-block" id="test_line_segment_cross_dateline_in_degrees">
 <a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline_in_degrees">[docs]</a>
@@ -92,7 +94,6 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if the line segment cross dateline, otherwise False.</span>
 <span class="sd">    All parameters are in radians.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">half_pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">dateline_lon</span> <span class="o">=</span> <span class="n">central_meridian</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
 
     <span class="n">a_to_dateline</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">point_a_lon</span> <span class="o">-</span> <span class="n">dateline_lon</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
@@ -126,6 +127,66 @@
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span></div>
+
+
+
+<div class="viewcode-block" id="lat_lon_to_xyz">
+<a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.lat_lon_to_xyz">[docs]</a>
+<span class="k">def</span> <span class="nf">lat_lon_to_xyz</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;all in radians&quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span></div>
+
+
+
+<div class="viewcode-block" id="xyz_to_lat_lon">
+<a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.xyz_to_lat_lon">[docs]</a>
+<span class="k">def</span> <span class="nf">xyz_to_lat_lon</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;in radians&quot;&quot;&quot;</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="mf">180.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mf">180.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+    <span class="k">return</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span></div>
+
+
+
+<div class="viewcode-block" id="find_two_great_circles_intersections">
+<a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.find_two_great_circles_intersections">[docs]</a>
+<span class="k">def</span> <span class="nf">find_two_great_circles_intersections</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">point_c</span><span class="p">,</span> <span class="n">point_d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;return the two intersection points&quot;&quot;&quot;</span>
+    <span class="c1"># to gradians</span>
+    <span class="n">pa_lat_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+    <span class="n">pa_lon_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_a</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+    <span class="n">pb_lat_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_b</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+    <span class="n">pb_lon_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_b</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+
+    <span class="c1"># to gradians</span>
+    <span class="n">pc_lat_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_c</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+    <span class="n">pc_lon_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_c</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+    <span class="n">pd_lat_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_d</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+    <span class="n">pd_lon_rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point_d</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">])</span>
+
+    <span class="c1"># get xyz coordinates</span>
+    <span class="n">xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="n">za</span> <span class="o">=</span> <span class="n">lat_lon_to_xyz</span><span class="p">(</span><span class="n">pa_lat_rad</span><span class="p">,</span> <span class="n">pa_lon_rad</span><span class="p">)</span>
+    <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">zb</span> <span class="o">=</span> <span class="n">lat_lon_to_xyz</span><span class="p">(</span><span class="n">pb_lat_rad</span><span class="p">,</span> <span class="n">pb_lon_rad</span><span class="p">)</span>
+    <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">zc</span> <span class="o">=</span> <span class="n">lat_lon_to_xyz</span><span class="p">(</span><span class="n">pc_lat_rad</span><span class="p">,</span> <span class="n">pc_lon_rad</span><span class="p">)</span>
+    <span class="n">xd</span><span class="p">,</span> <span class="n">yd</span><span class="p">,</span> <span class="n">zd</span> <span class="o">=</span> <span class="n">lat_lon_to_xyz</span><span class="p">(</span><span class="n">pd_lat_rad</span><span class="p">,</span> <span class="n">pd_lon_rad</span><span class="p">)</span>
+
+    <span class="c1"># Get normal to planes containing great circles</span>
+    <span class="n">N1</span> <span class="o">=</span> <span class="n">cross</span><span class="p">([</span><span class="n">xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="n">za</span><span class="p">],</span> <span class="p">[</span><span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">zb</span><span class="p">])</span>
+    <span class="n">N2</span> <span class="o">=</span> <span class="n">cross</span><span class="p">([</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">zc</span><span class="p">],</span> <span class="p">[</span><span class="n">xd</span><span class="p">,</span> <span class="n">yd</span><span class="p">,</span> <span class="n">zd</span><span class="p">])</span>
+
+    <span class="c1"># Find line of intersection between two planes</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">N1</span><span class="p">,</span> <span class="n">N2</span><span class="p">)</span>
+
+    <span class="c1"># Find two intersection points</span>
+    <span class="n">X1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+    <span class="n">X2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X1</span><span class="p">]</span>
+    <span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span> <span class="o">=</span> <span class="n">xyz_to_lat_lon</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span> <span class="o">=</span> <span class="n">xyz_to_lat_lon</span><span class="p">(</span><span class="n">X2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">lat1</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">lon1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">lat2</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">lon2</span><span class="p">}</span></div>
 
 </pre></div>
 
