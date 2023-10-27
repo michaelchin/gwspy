@@ -1,6 +1,5 @@
 *.gmt.gplates.xml
 *.gmt
-examples/output
 src/gplates_proxy/examples/maps
 *.env
 gplates-proxy-venv/
