@@ -52,12 +52,14 @@ def get_paleo_coastlines(
     if min_area is not None:
         params["min_area"] = min_area
 
+    if extent is not None:
+        params["extent"] = f"{extent[0]},{extent[1]},{extent[2]},{extent[3]}"
+
     if format == "png":
         params["fmt"] = "png"
         params["facecolor"] = facecolor
         params["edgecolor"] = edgecolor
         params["alpha"] = alpha
-        params["extent"] = f"{extent[0]},{extent[1]},{extent[2]},{extent[3]}"
         headers = {
             "Accept": "image/png",
         }
