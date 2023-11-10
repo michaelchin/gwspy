@@ -80,16 +80,17 @@
 <a class="viewcode-back" href="../../gplates_ws_proxy.html#gplates_ws_proxy.coastlines.get_paleo_coastlines">[docs]</a>
 <span class="nd">@auth</span>
 <span class="k">def</span> <span class="nf">get_paleo_coastlines</span><span class="p">(</span>
-    <span class="n">time</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;MULLER2022&quot;</span><span class="p">,</span>
     <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;geojson&quot;</span><span class="p">,</span>
     <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span>
     <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
     <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span>
-    <span class="n">wrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">central_meridian</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-    <span class="n">anchor_plate_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">wrap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">central_meridian</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">anchor_plate_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">min_area</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get paleo-coastlines</span>
 
@@ -106,6 +107,7 @@
 <span class="sd">    :param anchor_plate_id: anchor plate id</span>
 <span class="sd">    :param central_meridian: central meridian</span>
 <span class="sd">    :param wrap: flag to indicate if wrap the polygons along dateline</span>
+<span class="sd">    :param min_area: only returns polygons with a larger area</span>
 
 <span class="sd">    :returns: paleo-coastlines</span>
 <span class="sd">    :rtype: geojson</span>
@@ -119,6 +121,10 @@
         <span class="s2">&quot;wrap&quot;</span><span class="p">:</span> <span class="n">wrap</span><span class="p">,</span>
         <span class="s2">&quot;central_meridian&quot;</span><span class="p">:</span> <span class="n">central_meridian</span><span class="p">,</span>
     <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">min_area</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">params</span><span class="p">[</span><span class="s2">&quot;min_area&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_area</span>
+
     <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">&quot;png&quot;</span><span class="p">:</span>
         <span class="n">params</span><span class="p">[</span><span class="s2">&quot;fmt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;png&quot;</span>
         <span class="n">params</span><span class="p">[</span><span class="s2">&quot;facecolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">facecolor</span>
