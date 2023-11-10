@@ -7,16 +7,17 @@ from ._auth import auth
 
 @auth
 def get_paleo_coastlines(
-    time,
+    time: float,
     model="MULLER2022",
     format="geojson",
     facecolor="lime",
     edgecolor="none",
-    alpha=0.5,
+    alpha: float = 0.5,
     extent=(-180, 180, -90, 90),
-    wrap=True,
-    central_meridian=0.0,
-    anchor_plate_id=0,
+    wrap: bool = True,
+    central_meridian: float = 0.0,
+    anchor_plate_id: int = 0,
+    min_area: float = None,
 ):
     """Get paleo-coastlines
 
@@ -33,6 +34,7 @@ def get_paleo_coastlines(
     :param anchor_plate_id: anchor plate id
     :param central_meridian: central meridian
     :param wrap: flag to indicate if wrap the polygons along dateline
+    :param min_area: only returns polygons with a larger area
 
     :returns: paleo-coastlines
     :rtype: geojson
@@ -46,6 +48,10 @@ def get_paleo_coastlines(
         "wrap": wrap,
         "central_meridian": central_meridian,
     }
+
+    if min_area is not None:
+        params["min_area"] = min_area
+
     if format == "png":
         params["fmt"] = "png"
         params["facecolor"] = facecolor
