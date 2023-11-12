@@ -12,7 +12,8 @@ from gplates_ws_proxy import PlateModel
 def main(show=True):
     fig = plt.figure(figsize=(12, 6), dpi=120)
 
-    ax1 = fig.add_subplot(221, projection=ccrs.Robinson())
+    # plot 1
+    ax1 = fig.add_subplot(221, projection=ccrs.PlateCarree())
     ax1.set_global()
     ax1.gridlines()
 
@@ -28,10 +29,10 @@ def main(show=True):
         edgecolor="none",
         alpha=0.5,
     )
-
     ax1.set_title(f"{100} Ma")
 
-    ax2 = fig.add_subplot(222, projection=ccrs.PlateCarree())
+    # plot 2
+    ax2 = fig.add_subplot(222, projection=ccrs.Robinson())
     ax2.set_extent([-100, 100, -50, 50], crs=ccrs.Geodetic())
     ax2.gridlines()
 
@@ -45,9 +46,9 @@ def main(show=True):
         edgecolor="none",
         alpha=0.5,
     )
-
     ax2.set_title(f"{10} Ma")
 
+    # plot 3
     ax3 = fig.add_subplot(223, projection=ccrs.Mollweide())
     ax3.set_global()
     ax3.gridlines()
@@ -64,23 +65,25 @@ def main(show=True):
         edgecolor="none",
         alpha=0.5,
     )
+    ax3.set_title(f"min area 70000 km2")
 
-    ax3.set_title(f"min area 70000")
-
-    ax4 = fig.add_subplot(224)
-
+    # plot 4
+    ax4 = fig.add_subplot(224, projection=ccrs.Robinson())
+    ax4.set_global()
+    ax4.gridlines()
     model = PlateModel("Muller2022")
     coastlines_png = model.get_coastlines(
         time=200, format="png", facecolor="lime", edgecolor="red"
     )
     # print(type(coastlines_png))
     data = plt.imread(io.BytesIO(coastlines_png), format="png")
-    ax4.imshow(data)
-
-    ax3.set_title(f"200 Ma")
+    ax4.imshow(
+        data, origin="upper", transform=ccrs.PlateCarree(), extent=[-180, 180, -90, 90]
+    )
+    ax4.set_title(f"200 Ma")
 
     fig.subplots_adjust(
-        bottom=0.05, top=0.95, left=0.1, right=0.9, wspace=0.02, hspace=0.02
+        bottom=0.05, top=0.95, left=0.1, right=0.9, wspace=0.02, hspace=0.05
     )
 
     if show:
