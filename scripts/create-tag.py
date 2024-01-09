@@ -16,17 +16,17 @@ this_file_path = os.path.dirname(__file__)
 # 3. a github workflow will pick up the new tag and create a new release
 
 lines = []
-with open(f"{this_file_path}/../src/gplates-ws-proxy/__init__.py", "r") as f:
+with open(f"{this_file_path}/../src/gplates_ws_proxy/__init__.py", "r") as f:
     for line in f:
         if line.startswith("__version__"):
             lines.append(f'__version__ = "{new_version}"\n')
         else:
             lines.append(line)
 
-with open(f"{this_file_path}/../src/gplates-ws-proxy/__init__.py", "w") as of:
+with open(f"{this_file_path}/../src/gplates_ws_proxy/__init__.py", "w") as of:
     of.writelines(lines)
 
-subprocess.call(["git", "add", f"{this_file_path}/../src/gplates-ws-proxy/__init__.py"])
+subprocess.call(["git", "add", f"{this_file_path}/../src/gplates_ws_proxy/__init__.py"])
 subprocess.call(["git", "commit", "-m", f"update version to {new_version}"])
 subprocess.call(["git", "push"])
 
