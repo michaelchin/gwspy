@@ -1,6 +1,4 @@
-import math
-
-from importer import *
+from utils import logger
 
 from gplates_ws_proxy import PlateModel
 
@@ -11,12 +9,12 @@ topology_10 = model.get_topology(time)
 
 def test_plate_polygon_names():
     for name in topology_10.get_plate_polygon_names():
-        print(name)
+        logger.info(name)
 
 
 def test_plate_boundaries_types():
     for type in topology_10.get_plate_boundary_types():
-        print(type)
+        logger.info(type)
 
 
 if __name__ == "__main__":

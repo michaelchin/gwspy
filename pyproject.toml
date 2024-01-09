@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gplates-ws-proxy"
-version = "0.0.2"
+dynamic = ["version"]
 description = "GPlates Web Service Python client/proxy"
 readme = "README.md"
 authors = [{ name = "Michael Chin", email = "michael.chin@sydney.edu.au" }]
@@ -28,6 +28,8 @@ exclude = ["gplates_ws_proxy.tests*"]
 [tool.setuptools.package-data]
 gplates_ws_proxy = ["examples/*.ipynb"]
 
+[tool.setuptools.dynamic]
+version = {attr = "gplates_ws_proxy.__version__"}
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
