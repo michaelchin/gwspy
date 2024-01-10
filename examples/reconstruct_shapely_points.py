@@ -7,14 +7,9 @@ import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 import shapely
 
-sys.path.insert(0, "../src/")
-from common import OUTPUT_DIR
-
 from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
 
-# dev test
-# export GWS_URL=http://localhost:18000/
-# micromamba run -n gplates-ws-example ./reconstruct_shapely_points.py
+OUTPUT_DIR = "output"
 
 
 def main(show=True):

@@ -8,6 +8,10 @@ from common import OUTPUT_DIR, save_fig
 
 from gplates_ws_proxy import PlateModel
 
+# dev test
+# export GWS_URL=http://localhost:18000/
+# micromamba run -n gplates-ws-example ./plot_paleo_coastlines.py
+
 
 def main(show=True):
     fig = plt.figure(figsize=(12, 6), dpi=120)

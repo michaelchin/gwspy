@@ -1,14 +1,30 @@
 Use the following commands to create a running environment
 
-    `conda create --name gplates-ws-example -c conda-forge cartopy matplotlib moviepy shapely jupyter requests`
+```console
+conda create --name gplates-ws-example -c conda-forge cartopy matplotlib moviepy shapely jupyter requests
 
-    `conda activate gplates-ws-example`
+conda activate gplates-ws-example
 
-    `pip install gplates-ws-proxy`
+pip install gplates-ws-proxy
+```
 
-You may use the environment.yml to create the conda env as well.
+Alternatively, you may use the environment.yml to create the conda env.
 
-    `conda env create -f environment.yml`
+```console
+conda env create -f environment.yml
+
+conda activate gplates-ws-example
+
+pip install gplates-ws-proxy
+```
+
+Run the examples
+
+```console
+
+conda run -n gplates-ws-example ./reconstruct_shapely_points.py
+
+```
 
 ### Reconstruct locations
 

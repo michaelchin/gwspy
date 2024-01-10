@@ -1,6 +1,6 @@
 import math
 
-from importer import *
+from utils import *
 
 from gplates_ws_proxy import geometry_utils
 

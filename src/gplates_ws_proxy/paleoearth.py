@@ -11,9 +11,10 @@ def get_paleo_labels(time: float, model: str = "MULLER2022"):
     :returns: a dict object, {"names": names, "lons": lons, "lats": lats}
     """
 
-    r = requests.get(f"{a.server_url}/earth/get_labels?time={time}&model={model}")
+    url = f"{a.server_url}/earth/get_labels?time={time}&model={model}"
+    r = requests.get(url)
     if r.status_code != 200:
-        raise Exception("Failed to get paleo-labels!")
+        raise Exception(f"Failed to get paleo-labels{r.status_code}! -- {url}")
     labels = r.json()
     names = []
     lons = []

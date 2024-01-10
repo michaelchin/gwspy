@@ -1,6 +1,6 @@
 import json
 
-from importer import *
+from utils import logger
 
 from gplates_ws_proxy import subduction_teeth
 

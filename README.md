@@ -44,18 +44,18 @@ API reference can be found at https://michaelchin.github.io/gplates-python-proxy
 
 ### Examples
 
-👉 [reconstruct_shapely_points.py](examples/reconstruct_shapely_points.py)
+👉 [reconstruct_shapely_points.py](https://github.com/michaelchin/gplates-python-proxy/blob/main/examples/reconstruct_shapely_points.py)
 
 The red dots are present-day locations. The blue dots are paleo-locations at 100Ma.
 
-![reconstruct_shapely_points](/examples/output/reconstruct_shapely_points.png)
+![reconstruct_shapely_points](https://raw.githubusercontent.com/michaelchin/gplates-python-proxy/main//examples/output/reconstruct_shapely_points.png)
 
-👉 [plot_subduction_zones.py](examples/plot_subduction_zones.py)
+👉 [plot_subduction_zones.py](https://github.com/michaelchin/gplates-python-proxy/blob/main/examples/plot_subduction_zones.py)
 
-![plot_subduction_zones](examples/output/plot_subduction_zones.png)
+![plot_subduction_zones](https://raw.githubusercontent.com/michaelchin/gplates-python-proxy/main/examples/output/plot_subduction_zones.png)
 
-👉 [plot_topological_plate_polygons.py](examples/plot_topological_plate_polygons.py)
+👉 [plot_topological_plate_polygons.py](https://github.com/michaelchin/gplates-python-proxy/blob/main/examples/plot_topological_plate_polygons.py)
 
-![plot_topological_plate_polygons](examples/output/plot_topological_plate_polygons.png)
+![plot_topological_plate_polygons](https://raw.githubusercontent.com/michaelchin/gplates-python-proxy/main/examples/output/plot_topological_plate_polygons.png)
 
-[All Examples](examples/readme.md)
+[All Examples](https://github.com/michaelchin/gplates-python-proxy/blob/main/examples/readme.md)

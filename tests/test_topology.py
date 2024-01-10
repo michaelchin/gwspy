@@ -1,20 +1,26 @@
 from utils import logger
 
-from gplates_ws_proxy import PlateModel
+from gplates_ws_proxy import PlateModel, utils
 
 model = PlateModel("Muller2019")
 time = 10
 topology_10 = model.get_topology(time)
 
+logger.info(utils.get_cfg())
+
 
 def test_plate_polygon_names():
+    msg = []
     for name in topology_10.get_plate_polygon_names():
-        logger.info(name)
+        msg.append(name)
+    logger.info(msg)
 
 
 def test_plate_boundaries_types():
+    msg = []
     for type in topology_10.get_plate_boundary_types():
-        logger.info(type)
+        msg.append(type)
+    logger.info(msg)
 
 
 if __name__ == "__main__":
