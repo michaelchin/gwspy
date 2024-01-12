@@ -6,8 +6,7 @@ from pathlib import Path
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 
-sys.path.insert(0, "../src/")
-from common import OUTPUT_DIR
+OUTPUT_DIR = "output"
 
 from gplates_ws_proxy import coastlines, paleoearth
 

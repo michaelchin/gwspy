@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 
 import sys
+from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 
-sys.path.insert(0, "../src/")
-from common import OUTPUT_DIR, get_basemap_with_coastlines, save_fig
+from gplates_ws_proxy import coastlines, plate_model, subduction_teeth
 
-from gplates_ws_proxy import plate_model, subduction_teeth
+OUTPUT_DIR = "output"
+Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
 # dev test
 # export GWS_URL=http://localhost:18000/
@@ -70,6 +71,34 @@ def main(show=True):
         plt.show()
     else:
         save_fig(__file__)
+
+
+def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=140):
+    coastlines_shapely = coastlines.get_paleo_coastlines(
+        time=time, model=model, format="shapely"
+    )
+
+    fig = plt.figure(figsize=(12, 6), dpi=120)
+    ax = plt.axes(projection=crs)
+
+    ax.set_global()
+    ax.gridlines()
+
+    ax.add_geometries(
+        coastlines_shapely,
+        crs=ccrs.PlateCarree(),
+        facecolor="grey",
+        edgecolor="none",
+        alpha=0.5,
+    )
+    return ax
+
+
+def save_fig(filename):
+    output_file = f"{OUTPUT_DIR}/{Path(filename).stem}.png"
+    plt.gcf().savefig(output_file, dpi=120, bbox_inches="tight")  # transparent=True)
+    print(f"Done! The {output_file} has been saved.")
+    plt.close(plt.gcf())
 
 
 if __name__ == "__main__":

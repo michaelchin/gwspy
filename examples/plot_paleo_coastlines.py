@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import io
 import sys
+from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
-from common import OUTPUT_DIR, save_fig
 
 from gplates_ws_proxy import PlateModel
+
+OUTPUT_DIR = "output"
+Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
 # dev test
 # export GWS_URL=http://localhost:18000/
@@ -40,8 +43,9 @@ def main(show=True):
     ax2.set_extent([-100, 100, -50, 50], crs=ccrs.Geodetic())
     ax2.gridlines()
 
-    model = PlateModel("Muller2022")
-    coastlines_shapely = model.get_coastlines(time=10, min_area=10, format="shapely")
+    model = PlateModel("Muller2019")
+    time = 109
+    coastlines_shapely = model.get_coastlines(time=time, min_area=500, format="shapely")
 
     ax2.add_geometries(
         coastlines_shapely,
@@ -50,7 +54,7 @@ def main(show=True):
         edgecolor="none",
         alpha=0.5,
     )
-    ax2.set_title(f"{10} Ma")
+    ax2.set_title(f"{time} Ma")
 
     # plot 3
     ax3 = fig.add_subplot(223, projection=ccrs.Mollweide())
@@ -94,6 +98,13 @@ def main(show=True):
         plt.show()
     else:
         save_fig(__file__)
+
+
+def save_fig(filename):
+    output_file = f"{OUTPUT_DIR}/{Path(filename).stem}.png"
+    plt.gcf().savefig(output_file, dpi=120, bbox_inches="tight")  # transparent=True)
+    print(f"Done! The {output_file} has been saved.")
+    plt.close(plt.gcf())
 
 
 if __name__ == "__main__":

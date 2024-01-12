@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 import sys
+from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
-
-sys.path.insert(0, "../src/")
-from common import OUTPUT_DIR, save_fig
 from shapely.geometry import MultiLineString
 
 from gplates_ws_proxy import PlateModel
+
+OUTPUT_DIR = "output"
+Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
 # dev test
 # export GWS_URL=http://localhost:18000/
@@ -50,6 +51,13 @@ def main(show=True):
         plt.show()
     else:
         save_fig(__file__)
+
+
+def save_fig(filename):
+    output_file = f"{OUTPUT_DIR}/{Path(filename).stem}.png"
+    plt.gcf().savefig(output_file, dpi=120, bbox_inches="tight")  # transparent=True)
+    print(f"Done! The {output_file} has been saved.")
+    plt.close(plt.gcf())
 
 
 if __name__ == "__main__":
