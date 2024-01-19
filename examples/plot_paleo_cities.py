@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import sys
+
+sys.path.insert(0, "../src")
 from pathlib import Path
 
 import cartopy.crs as ccrs
@@ -9,16 +11,18 @@ import matplotlib.pyplot as plt
 OUTPUT_DIR = "output"
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
-from gplates_ws_proxy import coastlines, paleoearth
+from gplates_ws_proxy import coastlines, paleoearth, utils
 
 # dev test
 # export GWS_URL=http://localhost:18000/
-# micromamba run -n gplates-ws-example ./plot_paleo_labels.py
+# micromamba run -n gplates-ws-example ./plot_paleo_cities.py
 
 
 def main(show=True):
+    if callable(utils.get_cfg):
+        print(utils.get_cfg())
     time = 100
-    labels = paleoearth.get_paleo_labels(time=time, model="Merdith2021")
+    cities = paleoearth.get_paleo_cities(time=time, model="Merdith2021")
     coastlines_shapely = coastlines.get_paleo_coastlines(
         time=time, model="Merdith2021", format="shapely"
     )
@@ -37,7 +41,7 @@ def main(show=True):
         alpha=1,
     )
 
-    for name, lon, lat in zip(labels["names"], labels["lons"], labels["lats"]):
+    for name, lon, lat in zip(cities["names"], cities["lons"], cities["lats"]):
         plt.text(
             lon,
             lat,
@@ -49,7 +53,7 @@ def main(show=True):
             transform=ccrs.PlateCarree(),
         )
 
-    plt.plot(labels["lons"], labels["lats"], "o", transform=ccrs.PlateCarree())
+    plt.plot(cities["lons"], cities["lats"], "o", transform=ccrs.PlateCarree())
     plt.title(f"{time} Ma", fontsize=20)
 
     if show:

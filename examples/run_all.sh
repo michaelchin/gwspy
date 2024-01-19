@@ -4,6 +4,8 @@ source ~/.init_mamba
 
 micromamba activate gplates-ws-example
 
+./plot_paleo_cities.py save
+
 ./reconstruct_shapely_points.py save
 
 ./plot_topological_plate_polygons.py save

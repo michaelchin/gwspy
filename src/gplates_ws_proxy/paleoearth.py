@@ -14,7 +14,7 @@ def get_paleo_labels(time: float, model: str = "MULLER2022"):
     url = f"{a.server_url}/earth/get_labels?time={time}&model={model}"
     r = requests.get(url)
     if r.status_code != 200:
-        raise Exception(f"Failed to get paleo-labels{r.status_code}! -- {url}")
+        raise Exception(f"Failed to get paleo-labels {r.status_code}! -- {url}")
     labels = r.json()
     names = []
     lons = []
@@ -24,3 +24,18 @@ def get_paleo_labels(time: float, model: str = "MULLER2022"):
         lats.append(label[1])
         lons.append(label[2])
     return {"names": names, "lons": lons, "lats": lats}
+
+
+@auth
+def get_paleo_cities(time: float, model: str = "MULLER2022"):
+    """get a list of paleo-cities
+
+    :returns: a dict object, {"names": names, "lons": lons, "lats": lats}
+    """
+
+    url = f"{a.server_url}/earth/get_cities?time={time}&model={model}"
+    r = requests.get(url)
+    if r.status_code != 200:
+        raise Exception(f"Failed to get paleo-cities {r.status_code}! -- {url}")
+
+    return r.json()
