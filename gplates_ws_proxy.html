@@ -62,6 +62,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.gplates">gplates_ws_proxy.gplates module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-gplates_ws_proxy.paleoearth">gplates_ws_proxy.paleoearth module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.paleoearth.get_paleo_cities"><code class="docutils literal notranslate"><span class="pre">get_paleo_cities()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gplates_ws_proxy.paleoearth.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">get_paleo_labels()</span></code></a></li>
 </ul>
 </li>
@@ -240,6 +241,17 @@ All parameters are in radians.</p>
 </section>
 <section id="module-gplates_ws_proxy.paleoearth">
 <span id="gplates-ws-proxy-paleoearth-module"></span><h2>gplates_ws_proxy.paleoearth module<a class="headerlink" href="#module-gplates_ws_proxy.paleoearth" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gplates_ws_proxy.paleoearth.get_paleo_cities">
+<span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.paleoearth.</span></span><span class="sig-name descname"><span class="pre">get_paleo_cities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MULLER2022'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/paleoearth.html#get_paleo_cities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.paleoearth.get_paleo_cities" title="Link to this definition"></a></dt>
+<dd><p>get a list of paleo-cities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dict object, {“names”: names, “lons”: lons, “lats”: lats}</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="gplates_ws_proxy.paleoearth.get_paleo_labels">
 <span class="sig-prename descclassname"><span class="pre">gplates_ws_proxy.paleoearth.</span></span><span class="sig-name descname"><span class="pre">get_paleo_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MULLER2022'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gplates_ws_proxy/paleoearth.html#get_paleo_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gplates_ws_proxy.paleoearth.get_paleo_labels" title="Link to this definition"></a></dt>
