@@ -5,7 +5,7 @@ conda create --name gplates-ws-example -c conda-forge cartopy matplotlib moviepy
 
 conda activate gplates-ws-example
 
-pip install gplates-ws-proxy
+pip install gwspy
 ```
 
 Alternatively, you may use the environment.yml to create the conda env.
@@ -15,7 +15,7 @@ conda env create -f environment.yml
 
 conda activate gplates-ws-example
 
-pip install gplates-ws-proxy
+pip install gwspy
 ```
 
 Run the examples

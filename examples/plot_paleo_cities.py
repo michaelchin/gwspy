@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 OUTPUT_DIR = "output"
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
-from gplates_ws_proxy import coastlines, paleoearth, utils
+from gwspy import coastlines, paleoearth, utils
 
 # dev test
 # export GWS_URL=http://localhost:18000/

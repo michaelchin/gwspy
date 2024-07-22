@@ -2,7 +2,7 @@ import json
 
 from utils import logger
 
-from gplates_ws_proxy import subduction_teeth
+from gwspy import subduction_teeth
 
 lons = [-43.1124, -6.1282, 5.0676, 18.7966, 30.2718, 40.4890, 52.3162]
 lats = [11.3974, 6.6426, 10.8345, 9.1520, 6.0869, 9.1520, 6.9207]

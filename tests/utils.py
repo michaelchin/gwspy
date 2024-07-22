@@ -28,12 +28,12 @@ if not GPLATES_PROXY_TEST_MODULE:
     # testing ../src
     import sys
 
-    # Important: you need to `pip uninstall -y gplates-ws-proxy`
+    # Important: you need to `pip uninstall -y gwspy`
     sys.path.insert(0, "../src")
 
 
-import gplates_ws_proxy
+import gwspy
 
 logger.info(
-    f"GPLATES_PROXY_TEST_MODULE={GPLATES_PROXY_TEST_MODULE}; testing {gplates_ws_proxy.__file__}"
+    f"GPLATES_PROXY_TEST_MODULE={GPLATES_PROXY_TEST_MODULE}; testing {gwspy.__file__}"
 )

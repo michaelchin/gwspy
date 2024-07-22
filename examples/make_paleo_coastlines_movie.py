@@ -5,7 +5,7 @@ import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 import moviepy.editor as mpy
 
-from gplates_ws_proxy import coastlines
+from gwspy import coastlines
 
 OUTPUT_DIR = "output"
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)

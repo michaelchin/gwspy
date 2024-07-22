@@ -1,7 +1,7 @@
 from shapely import Point
 from utils import logger
 
-import gplates_ws_proxy
+import gwspy
 
 
 def test_reconstruct_points():
@@ -10,8 +10,8 @@ def test_reconstruct_points():
 
     points = [Point(x, y) for x, y in zip(lons, lats)]
 
-    model = gplates_ws_proxy.PlateModel("Muller2019")
-    paleo_points = gplates_ws_proxy.reconstruct_shapely_points(model, points, 100)
+    model = gwspy.PlateModel("Muller2019")
+    paleo_points = gwspy.reconstruct_shapely_points(model, points, 100)
     print(paleo_points)
 
     paleo_points = model.reconstruct(lats, lons, 100)

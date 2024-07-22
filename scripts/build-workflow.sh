@@ -10,8 +10,8 @@ pip3 install -U pip-tools shapely
 pip3 install -U sphinx sphinx_rtd_theme
 pip-compile pyproject.toml
 pip3 install .
-rm doc/source/gplates_ws_proxy.rst
+rm doc/source/gwspy.rst
 rm doc/source/modules.rst
-sphinx-apidoc -o doc/source src/gplates_ws_proxy/
+sphinx-apidoc -o doc/source src/gwspy/
 cd doc
 make html

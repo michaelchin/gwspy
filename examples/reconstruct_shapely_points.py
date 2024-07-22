@@ -7,7 +7,7 @@ import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 import shapely
 
-from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
+from gwspy import PlateModel, reconstruct_shapely_points
 
 OUTPUT_DIR = "output"
 

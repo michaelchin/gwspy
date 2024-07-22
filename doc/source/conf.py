@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 
-project = "gplates-ws-proxy"
+project = "gwspy"
 copyright = "2023, Michael Chin"
 author = "Michael Chin"
 release = "1.0.1"

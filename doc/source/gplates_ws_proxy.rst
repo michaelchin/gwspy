@@ -7,7 +7,7 @@ Submodules
 gplates\_ws\_proxy.coastlines module
 ------------------------------------
 
-.. automodule:: gplates_ws_proxy.coastlines
+.. automodule:: gwspy.coastlines
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ gplates\_ws\_proxy.coastlines module
 gplates\_ws\_proxy.gplates module
 ---------------------------------
 
-.. automodule:: gplates_ws_proxy.gplates
+.. automodule:: gwspy.gplates
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ gplates\_ws\_proxy.gplates module
 gplates\_ws\_proxy.plate\_model module
 --------------------------------------
 
-.. automodule:: gplates_ws_proxy.plate_model
+.. automodule:: gwspy.plate_model
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ gplates\_ws\_proxy.plate\_model module
 gplates\_ws\_proxy.reconstruction module
 ----------------------------------------
 
-.. automodule:: gplates_ws_proxy.reconstruction
+.. automodule:: gwspy.reconstruction
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ gplates\_ws\_proxy.reconstruction module
 Module contents
 ---------------
 
-.. automodule:: gplates_ws_proxy
+.. automodule:: gwspy
    :members:
    :undoc-members:
    :show-inheritance:

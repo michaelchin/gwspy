@@ -6,7 +6,7 @@ import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 from shapely.geometry import MultiLineString
 
-from gplates_ws_proxy import PlateModel
+from gwspy import PlateModel
 
 OUTPUT_DIR = "output"
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)

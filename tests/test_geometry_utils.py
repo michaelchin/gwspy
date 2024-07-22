@@ -2,7 +2,7 @@ import math
 
 from utils import *
 
-from gplates_ws_proxy import geometry_utils
+from gwspy import geometry_utils
 
 
 def test_cross_dateline():

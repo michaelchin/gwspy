@@ -6,7 +6,7 @@ from pathlib import Path
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 
-from gplates_ws_proxy import coastlines, plate_model, subduction_teeth
+from gwspy import coastlines, plate_model, subduction_teeth
 
 OUTPUT_DIR = "output"
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 from utils import logger
 
-from gplates_ws_proxy import PlateModel, utils
+from gwspy import PlateModel, utils
 
 model = PlateModel("Muller2019")
 time = 10

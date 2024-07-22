@@ -1,22 +1,22 @@
 # GPlates Web Service Python Client/Proxy
 
 ![build badge](https://github.com/michaelchin/gplates-python-proxy/actions/workflows/build-doc.yml/badge.svg)
-[![PyPI version](https://badge.fury.io/py/gplates-ws-proxy.svg)](https://badge.fury.io/py/gplates-ws-proxy)
+[![PyPI version](https://badge.fury.io/py/gwspy.svg)](https://badge.fury.io/py/gwspy)
 
 This Python package allows users to access [GPlates Web Service](https://gwsdoc.gplates.org/) more easily via simple Python programming interface.
 
 ### Installation
 
-`pip install gplates-ws-proxy`
+`pip install gwspy`
 
 ### How to use
 
 The following Python code reconstructs three locations to 100Ma with Muller2019 reconstruction model.
 
 ```python
-  # pip install gplates-ws-proxy shapely
+  # pip install gwspy shapely
   import shapely
-  from gplates_ws_proxy import PlateModel, reconstruct_shapely_points
+  from gwspy import PlateModel, reconstruct_shapely_points
 
   lats = [50, 10, 50]
   lons = [-100, 160, 100]
@@ -31,7 +31,7 @@ The following Python code reconstructs three locations to 100Ma with Muller2019 
 
 By default, https://gws.gplates.org is used. You can use .env file to specify your service URL. Alternertively, you can `export GWS_URL=https://your-service-url` in a terminal.
 
-See [env.template](src/gplates_ws_proxy/env.template) and [setup GWS server with Docker](https://github.com/GPlates/gplates-web-service/tree/master/docker#-quick-start).
+See [env.template](src/gwspy/env.template) and [setup GWS server with Docker](https://github.com/GPlates/gplates-web-service/tree/master/docker#-quick-start).
 
 ### Dependencies
 

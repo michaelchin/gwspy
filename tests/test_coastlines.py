@@ -1,11 +1,11 @@
 from utils import logger
 
-import gplates_ws_proxy
+import gwspy
 
 
 def test_coastlines():
-    r = gplates_ws_proxy.get_paleo_coastlines(100)
+    r = gwspy.get_paleo_coastlines(100)
     print(r)
 
-    r = gplates_ws_proxy.get_paleo_coastlines(100, format="shapely")
+    r = gwspy.get_paleo_coastlines(100, format="shapely")
     print(r)
