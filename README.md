@@ -1,4 +1,4 @@
-# GPlates Web Service Python Client/Proxy
+# GPlates Web Service Python Wrapper
 
 ![build badge](https://github.com/michaelchin/gplates-python-proxy/actions/workflows/build-doc.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/gwspy.svg)](https://badge.fury.io/py/gwspy)
@@ -11,7 +11,7 @@ This Python package allows users to access [GPlates Web Service](https://gwsdoc.
 
 ### How to use
 
-The following Python code reconstructs three locations to 100Ma with Muller2019 reconstruction model.
+The following Python code reconstructs three locations to 100Ma with [Muller2019](https://zenodo.org/doi/10.5281/zenodo.10525286) reconstruction model.
 
 ```python
   # pip install gwspy shapely
@@ -40,7 +40,7 @@ See [env.template](src/gwspy/env.template) and [setup GWS server with Docker](ht
 
 ### API reference
 
-API reference can be found at https://michaelchin.github.io/gplates-python-proxy/.
+API reference can be found at https://michaelchin.github.io/gwspy/.
 
 ### Examples
 
