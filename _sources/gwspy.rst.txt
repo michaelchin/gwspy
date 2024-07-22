@@ -1,0 +1,117 @@
+gwspy package
+=============
+
+Submodules
+----------
+
+gwspy.coastlines module
+-----------------------
+
+.. automodule:: gwspy.coastlines
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.geometry\_utils module
+----------------------------
+
+.. automodule:: gwspy.geometry_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.gplates module
+--------------------
+
+.. automodule:: gwspy.gplates
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.paleoearth module
+-----------------------
+
+.. automodule:: gwspy.paleoearth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.plate\_model module
+-------------------------
+
+.. automodule:: gwspy.plate_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.quaternions module
+------------------------
+
+.. automodule:: gwspy.quaternions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.reconstruction module
+---------------------------
+
+.. automodule:: gwspy.reconstruction
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.resample\_line module
+---------------------------
+
+.. automodule:: gwspy.resample_line
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.rotation module
+---------------------
+
+.. automodule:: gwspy.rotation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.spherical\_triangle module
+--------------------------------
+
+.. automodule:: gwspy.spherical_triangle
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.subduction\_teeth module
+------------------------------
+
+.. automodule:: gwspy.subduction_teeth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.topology module
+---------------------
+
+.. automodule:: gwspy.topology
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+gwspy.utils module
+------------------
+
+.. automodule:: gwspy.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: gwspy
+   :members:
+   :undoc-members:
+   :show-inheritance:

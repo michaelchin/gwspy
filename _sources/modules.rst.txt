@@ -1,7 +1,7 @@
-gplates_ws_proxy
-================
+gwspy
+=====
 
 .. toctree::
    :maxdepth: 4
 
-   gplates_ws_proxy
+   gwspy

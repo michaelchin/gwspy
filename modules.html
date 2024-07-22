@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gplates_ws_proxy &mdash; gplates-ws-proxy 1.0.1 documentation</title>
+  <title>gwspy &mdash; gwspy 1.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -16,12 +16,12 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=292eb321"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="gplates_ws_proxy package" href="gplates_ws_proxy.html" />
+    <link rel="next" title="gwspy package" href="gwspy.html" />
     <link rel="prev" title="Welcome to GPlates Web Service Proxy’s documentation!" href="index.html" /> 
 </head>
 
@@ -34,7 +34,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            gplates-ws-proxy
+            gwspy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,8 +46,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">gplates_ws_proxy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html">gplates_ws_proxy package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">gwspy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html">gwspy package</a></li>
 </ul>
 </li>
 </ul>
@@ -58,7 +58,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">gplates-ws-proxy</a>
+          <a href="index.html">gwspy</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -66,7 +66,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">gplates_ws_proxy</li>
+      <li class="breadcrumb-item active">gwspy</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -76,117 +76,117 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="gplates-ws-proxy">
-<h1>gplates_ws_proxy<a class="headerlink" href="#gplates-ws-proxy" title="Link to this heading"></a></h1>
+  <section id="gwspy">
+<h1>gwspy<a class="headerlink" href="#gwspy" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="gplates_ws_proxy.html">gplates_ws_proxy package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.coastlines">gplates_ws_proxy.coastlines module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.coastlines.get_paleo_coastlines"><code class="docutils literal notranslate"><span class="pre">get_paleo_coastlines()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwspy.html">gwspy package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.coastlines">gwspy.coastlines module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.coastlines.get_paleo_coastlines"><code class="docutils literal notranslate"><span class="pre">get_paleo_coastlines()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.geometry_utils">gplates_ws_proxy.geometry_utils module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.find_two_great_circles_intersections"><code class="docutils literal notranslate"><span class="pre">find_two_great_circles_intersections()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.lat_lon_to_xyz"><code class="docutils literal notranslate"><span class="pre">lat_lon_to_xyz()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline"><code class="docutils literal notranslate"><span class="pre">test_line_segment_cross_dateline()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.test_line_segment_cross_dateline_in_degrees"><code class="docutils literal notranslate"><span class="pre">test_line_segment_cross_dateline_in_degrees()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.geometry_utils.xyz_to_lat_lon"><code class="docutils literal notranslate"><span class="pre">xyz_to_lat_lon()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.geometry_utils">gwspy.geometry_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.geometry_utils.find_two_great_circles_intersections"><code class="docutils literal notranslate"><span class="pre">find_two_great_circles_intersections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.geometry_utils.lat_lon_to_xyz"><code class="docutils literal notranslate"><span class="pre">lat_lon_to_xyz()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.geometry_utils.test_line_segment_cross_dateline"><code class="docutils literal notranslate"><span class="pre">test_line_segment_cross_dateline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.geometry_utils.test_line_segment_cross_dateline_in_degrees"><code class="docutils literal notranslate"><span class="pre">test_line_segment_cross_dateline_in_degrees()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.geometry_utils.xyz_to_lat_lon"><code class="docutils literal notranslate"><span class="pre">xyz_to_lat_lon()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.gplates">gplates_ws_proxy.gplates module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.paleoearth">gplates_ws_proxy.paleoearth module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.paleoearth.get_paleo_cities"><code class="docutils literal notranslate"><span class="pre">get_paleo_cities()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.paleoearth.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">get_paleo_labels()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.gplates">gwspy.gplates module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.paleoearth">gwspy.paleoearth module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.paleoearth.get_paleo_cities"><code class="docutils literal notranslate"><span class="pre">get_paleo_cities()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.paleoearth.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">get_paleo_labels()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.plate_model">gplates_ws_proxy.plate_model module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel"><code class="docutils literal notranslate"><span class="pre">PlateModel</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_cfg"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_cfg()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_coastlines"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_coastlines()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_paleo_labels()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_subduction_zones"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_subduction_zones()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.get_topology"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_topology()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.list_models"><code class="docutils literal notranslate"><span class="pre">PlateModel.list_models()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.PlateModel.reconstruct"><code class="docutils literal notranslate"><span class="pre">PlateModel.reconstruct()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.plate_model">gwspy.plate_model module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel"><code class="docutils literal notranslate"><span class="pre">PlateModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.get_cfg"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_cfg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.get_coastlines"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_coastlines()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.get_paleo_labels"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_paleo_labels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.get_subduction_zones"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_subduction_zones()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.get_topology"><code class="docutils literal notranslate"><span class="pre">PlateModel.get_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.list_models"><code class="docutils literal notranslate"><span class="pre">PlateModel.list_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.plate_model.PlateModel.reconstruct"><code class="docutils literal notranslate"><span class="pre">PlateModel.reconstruct()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.plate_model.reconstruct_shapely_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_shapely_points()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.plate_model.reconstruct_shapely_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_shapely_points()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.quaternions">gplates_ws_proxy.quaternions module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.axis_angle_to_quat"><code class="docutils literal notranslate"><span class="pre">axis_angle_to_quat()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.cart_to_lat_lon"><code class="docutils literal notranslate"><span class="pre">cart_to_lat_lon()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.lat_lon_to_cart"><code class="docutils literal notranslate"><span class="pre">lat_lon_to_cart()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.quat_conjugate"><code class="docutils literal notranslate"><span class="pre">quat_conjugate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.quat_mult"><code class="docutils literal notranslate"><span class="pre">quat_mult()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.quat_to_axis_angle"><code class="docutils literal notranslate"><span class="pre">quat_to_axis_angle()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.quat_vec_mult"><code class="docutils literal notranslate"><span class="pre">quat_vec_mult()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.quaternions.test_rotate"><code class="docutils literal notranslate"><span class="pre">test_rotate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.quaternions">gwspy.quaternions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.axis_angle_to_quat"><code class="docutils literal notranslate"><span class="pre">axis_angle_to_quat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.cart_to_lat_lon"><code class="docutils literal notranslate"><span class="pre">cart_to_lat_lon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.lat_lon_to_cart"><code class="docutils literal notranslate"><span class="pre">lat_lon_to_cart()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.quat_conjugate"><code class="docutils literal notranslate"><span class="pre">quat_conjugate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.quat_mult"><code class="docutils literal notranslate"><span class="pre">quat_mult()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.quat_to_axis_angle"><code class="docutils literal notranslate"><span class="pre">quat_to_axis_angle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.quat_vec_mult"><code class="docutils literal notranslate"><span class="pre">quat_vec_mult()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.quaternions.test_rotate"><code class="docutils literal notranslate"><span class="pre">test_rotate()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.reconstruction">gplates_ws_proxy.reconstruction module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.reconstruction.get_paleo_coordinates"><code class="docutils literal notranslate"><span class="pre">get_paleo_coordinates()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.reconstruction.reconstruct_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.reconstruction">gwspy.reconstruction module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.reconstruction.get_paleo_coordinates"><code class="docutils literal notranslate"><span class="pre">get_paleo_coordinates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.reconstruction.reconstruct_points"><code class="docutils literal notranslate"><span class="pre">reconstruct_points()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.resample_line">gplates_ws_proxy.resample_line module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.resample_line.degree_to_radian"><code class="docutils literal notranslate"><span class="pre">degree_to_radian()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.resample_line.radian_to_degree"><code class="docutils literal notranslate"><span class="pre">radian_to_degree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.resample_line.resample_line"><code class="docutils literal notranslate"><span class="pre">resample_line()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.resample_line.sample_next_point"><code class="docutils literal notranslate"><span class="pre">sample_next_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.resample_line">gwspy.resample_line module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.resample_line.degree_to_radian"><code class="docutils literal notranslate"><span class="pre">degree_to_radian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.resample_line.radian_to_degree"><code class="docutils literal notranslate"><span class="pre">radian_to_degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.resample_line.resample_line"><code class="docutils literal notranslate"><span class="pre">resample_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.resample_line.sample_next_point"><code class="docutils literal notranslate"><span class="pre">sample_next_point()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.rotation">gplates_ws_proxy.rotation module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.cross"><code class="docutils literal notranslate"><span class="pre">cross()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.distance"><code class="docutils literal notranslate"><span class="pre">distance()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.dot"><code class="docutils literal notranslate"><span class="pre">dot()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.find_axis_and_angle"><code class="docutils literal notranslate"><span class="pre">find_axis_and_angle()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.interp_two_points"><code class="docutils literal notranslate"><span class="pre">interp_two_points()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.km_to_radian"><code class="docutils literal notranslate"><span class="pre">km_to_radian()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.radian_distance"><code class="docutils literal notranslate"><span class="pre">radian_distance()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.radian_to_km"><code class="docutils literal notranslate"><span class="pre">radian_to_km()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.rotation.sample_between_two_points"><code class="docutils literal notranslate"><span class="pre">sample_between_two_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.rotation">gwspy.rotation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.cross"><code class="docutils literal notranslate"><span class="pre">cross()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.distance"><code class="docutils literal notranslate"><span class="pre">distance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.dot"><code class="docutils literal notranslate"><span class="pre">dot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.find_axis_and_angle"><code class="docutils literal notranslate"><span class="pre">find_axis_and_angle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.interp_two_points"><code class="docutils literal notranslate"><span class="pre">interp_two_points()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.km_to_radian"><code class="docutils literal notranslate"><span class="pre">km_to_radian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.radian_distance"><code class="docutils literal notranslate"><span class="pre">radian_distance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.radian_to_km"><code class="docutils literal notranslate"><span class="pre">radian_to_km()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.rotation.sample_between_two_points"><code class="docutils literal notranslate"><span class="pre">sample_between_two_points()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.spherical_triangle">gplates_ws_proxy.spherical_triangle module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.spherical_triangle.get_third_vertex"><code class="docutils literal notranslate"><span class="pre">get_third_vertex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.spherical_triangle">gwspy.spherical_triangle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.spherical_triangle.get_third_vertex"><code class="docutils literal notranslate"><span class="pre">get_third_vertex()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.subduction_teeth">gplates_ws_proxy.subduction_teeth module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.Polarity"><code class="docutils literal notranslate"><span class="pre">Polarity</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.Polarity.LEFT"><code class="docutils literal notranslate"><span class="pre">Polarity.LEFT</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.Polarity.RIGHT"><code class="docutils literal notranslate"><span class="pre">Polarity.RIGHT</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.Polarity.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">Polarity.UNKNOWN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.subduction_teeth">gwspy.subduction_teeth module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.Polarity"><code class="docutils literal notranslate"><span class="pre">Polarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.Polarity.LEFT"><code class="docutils literal notranslate"><span class="pre">Polarity.LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.Polarity.RIGHT"><code class="docutils literal notranslate"><span class="pre">Polarity.RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.Polarity.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">Polarity.UNKNOWN</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.get_subduction_teeth"><code class="docutils literal notranslate"><span class="pre">get_subduction_teeth()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.get_subduction_teeth_in_degrees"><code class="docutils literal notranslate"><span class="pre">get_subduction_teeth_in_degrees()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.subduction_teeth.get_triangle"><code class="docutils literal notranslate"><span class="pre">get_triangle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.get_subduction_teeth"><code class="docutils literal notranslate"><span class="pre">get_subduction_teeth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.get_subduction_teeth_in_degrees"><code class="docutils literal notranslate"><span class="pre">get_subduction_teeth_in_degrees()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.subduction_teeth.get_triangle"><code class="docutils literal notranslate"><span class="pre">get_triangle()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.topology">gplates_ws_proxy.topology module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.Topology"><code class="docutils literal notranslate"><span class="pre">Topology</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.Topology.get_features"><code class="docutils literal notranslate"><span class="pre">Topology.get_features()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.Topology.get_plate_boundaries"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_boundaries()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.Topology.get_plate_boundary_types"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_boundary_types()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.Topology.get_plate_polygon_names"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_polygon_names()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.Topology.get_plate_polygons"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_polygons()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.topology">gwspy.topology module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.topology.Topology"><code class="docutils literal notranslate"><span class="pre">Topology</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.topology.Topology.get_features"><code class="docutils literal notranslate"><span class="pre">Topology.get_features()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.topology.Topology.get_plate_boundaries"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_boundaries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.topology.Topology.get_plate_boundary_types"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_boundary_types()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.topology.Topology.get_plate_polygon_names"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_polygon_names()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gwspy.html#gwspy.topology.Topology.get_plate_polygons"><code class="docutils literal notranslate"><span class="pre">Topology.get_plate_polygons()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.get_subduction_zones"><code class="docutils literal notranslate"><span class="pre">get_subduction_zones()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.get_topological_plate_boundaries"><code class="docutils literal notranslate"><span class="pre">get_topological_plate_boundaries()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.topology.get_topological_plate_polygons"><code class="docutils literal notranslate"><span class="pre">get_topological_plate_polygons()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.topology.get_subduction_zones"><code class="docutils literal notranslate"><span class="pre">get_subduction_zones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.topology.get_topological_plate_boundaries"><code class="docutils literal notranslate"><span class="pre">get_topological_plate_boundaries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.topology.get_topological_plate_polygons"><code class="docutils literal notranslate"><span class="pre">get_topological_plate_polygons()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy.utils">gplates_ws_proxy.utils module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.utils.geojson_to_shapely"><code class="docutils literal notranslate"><span class="pre">geojson_to_shapely()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="gplates_ws_proxy.html#gplates_ws_proxy.utils.get_cfg"><code class="docutils literal notranslate"><span class="pre">get_cfg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy.utils">gwspy.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.utils.geojson_to_shapely"><code class="docutils literal notranslate"><span class="pre">geojson_to_shapely()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gwspy.html#gwspy.utils.get_cfg"><code class="docutils literal notranslate"><span class="pre">get_cfg()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gplates_ws_proxy.html#module-gplates_ws_proxy">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gwspy.html#module-gwspy">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -198,7 +198,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to GPlates Web Service Proxy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gplates_ws_proxy.html" class="btn btn-neutral float-right" title="gplates_ws_proxy package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gwspy.html" class="btn btn-neutral float-right" title="gwspy package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
