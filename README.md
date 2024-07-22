@@ -1,6 +1,6 @@
 # GPlates Web Service Python Wrapper
 
-![build badge](https://github.com/michaelchin/gplates-python-proxy/actions/workflows/build-doc.yml/badge.svg)
+![build badge](https://github.com/michaelchin/gwspy/actions/workflows/build-doc.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/gwspy.svg)](https://badge.fury.io/py/gwspy)
 
 This Python package allows users to access [GPlates Web Service](https://gwsdoc.gplates.org/) more easily via simple Python programming interface.
