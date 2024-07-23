@@ -3,7 +3,13 @@
 ![build badge](https://github.com/michaelchin/gwspy/actions/workflows/build-doc.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/gwspy.svg)](https://badge.fury.io/py/gwspy)
 
-This Python package allows users to access [GPlates Web Service](https://gwsdoc.gplates.org/) more easily via simple Python programming interface.
+<p align="center">
+  <a href="https://www.gplates.org">
+    <img src="https://github.com/user-attachments/assets/131cbf15-7d19-4789-94dc-babf7f6e6003" alt='GPlates' title='GPlates' style="width:200px"/>
+  </a>
+</p>
+
+The GPlates Web Service Python Wrapper allows users to access [GPlates Web Service](https://gwsdoc.gplates.org/) more easily via a simple Python programming interface. This Python package is a part of [GPlates software suite](https://www.gplates.org/). GPlates is an open source project funded by [AuScope](https://www.auscope.org.au/).
 
 ### Installation
 
@@ -41,6 +47,11 @@ See [env.template](src/gwspy/env.template) and [setup GWS server with Docker](ht
 ### API reference
 
 API reference can be found at https://michaelchin.github.io/gwspy/.
+
+### Contact
+
+The [EarthByte group](https://www.earthbyte.org/contact-us-3/) at the University of Sydney is responsible for maintaining the GPlates software suite. 
+
 
 ### Examples
 
