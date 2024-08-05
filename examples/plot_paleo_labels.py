@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 OUTPUT_DIR = "output"
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
+MODEL_NAME = "Merdith2021"
 
 from gwspy import coastlines, paleoearth
 
@@ -16,11 +17,10 @@ from gwspy import coastlines, paleoearth
 # micromamba run -n gplates-ws-example ./plot_paleo_labels.py
 
 
-def main(show=True):
-    time = 100
-    labels = paleoearth.get_paleo_labels(time=time, model="Merdith2021")
+def plot_labels(show=True, time=182, output_file=None):
+    labels = paleoearth.get_paleo_labels(time=time, model=MODEL_NAME)
     coastlines_shapely = coastlines.get_paleo_coastlines(
-        time=time, model="Merdith2021", format="shapely"
+        time=time, model=MODEL_NAME, format="shapely"
     )
 
     fig = plt.figure(figsize=(12, 6), dpi=120)
@@ -55,14 +55,23 @@ def main(show=True):
     if show:
         plt.show()
     else:
-        output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
-        fig.savefig(output_file, dpi=120, bbox_inches="tight")
+        if not output_file:
+            output_file = f"{OUTPUT_DIR}/{Path(__file__).stem}.png"
+        fig.savefig(output_file, dpi=120)
         print(f"Done! The {output_file} has been saved.")
         plt.close(fig)
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 2 and sys.argv[1] == "save":
-        main(show=False)
+        plot_labels(show=False)
+    elif len(sys.argv) == 2 and sys.argv[1] == "save_all":
+        Path(f"{OUTPUT_DIR}/paleo-labels").mkdir(parents=True, exist_ok=True)
+        for time in range(0, 1001, 10):
+            plot_labels(
+                show=False,
+                time=time,
+                output_file=f"{OUTPUT_DIR}/paleo-labels/{MODEL_NAME}_{time}Ma.png",
+            )
     else:
-        main(show=True)
+        plot_labels(show=True)
