@@ -19,11 +19,13 @@ def get_paleo_labels(time: float, model: str = "MULLER2022"):
     names = []
     lons = []
     lats = []
+    types = []
     for label in labels:
         names.append(label[0])
         lats.append(label[1])
         lons.append(label[2])
-    return {"names": names, "lons": lons, "lats": lats}
+        types.append(label[3])
+    return {"names": names, "lons": lons, "lats": lats, "types": types}
 
 
 @auth

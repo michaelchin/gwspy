@@ -17,7 +17,7 @@ from gwspy import coastlines, paleoearth
 # micromamba run -n gplates-ws-example ./plot_paleo_labels.py
 
 
-def plot_labels(show=True, time=182, output_file=None):
+def plot_labels(show=True, time=100, output_file=None):
     labels = paleoearth.get_paleo_labels(time=time, model=MODEL_NAME)
     coastlines_shapely = coastlines.get_paleo_coastlines(
         time=time, model=MODEL_NAME, format="shapely"
@@ -37,19 +37,38 @@ def plot_labels(show=True, time=182, output_file=None):
         alpha=1,
     )
 
-    for name, lon, lat in zip(labels["names"], labels["lons"], labels["lats"]):
-        plt.text(
-            lon,
+    for name, lon, lat, type in zip(
+        labels["names"], labels["lons"], labels["lats"], labels["types"]
+    ):
+        if type in ["continent"]:
+            text_color = "green"
+            marker = "o"
+        elif type in ["craton"]:
+            text_color = "red"
+            marker = "s"
+        else:
+            text_color = "blue"
+            marker = "*"
+        ax.text(
+            lon + 2,
             lat,
             name,
-            va="baseline",
-            family="monospace",
-            weight="bold",
-            color="red",
+            va="center_baseline",
+            ha="left",
+            weight="light",
+            size="x-small",
+            color=text_color,
+            transform=ccrs.PlateCarree(),
+        )
+        ax.plot(
+            lon,
+            lat,
+            marker,
+            color=text_color,
+            markersize=3,
             transform=ccrs.PlateCarree(),
         )
 
-    plt.plot(labels["lons"], labels["lats"], "o", transform=ccrs.PlateCarree())
     plt.title(f"{time} Ma", fontsize=20)
 
     if show:
