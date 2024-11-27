@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import cartopy.crs as ccrs
+import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 
 OUTPUT_DIR = "output"
@@ -46,6 +47,9 @@ def plot_labels(show=True, time=100, output_file=None):
         elif type in ["craton"]:
             text_color = "red"
             marker = "s"
+        elif type in ["shield"]:
+            text_color = "purple"
+            marker = "^"
         else:
             text_color = "blue"
             marker = "*"
@@ -68,6 +72,37 @@ def plot_labels(show=True, time=100, output_file=None):
             markersize=3,
             transform=ccrs.PlateCarree(),
         )
+
+    blue_star = mlines.Line2D(
+        [], [], color="blue", marker="*", linestyle="None", markersize=5, label="Oceans"
+    )
+    red_square = mlines.Line2D(
+        [], [], color="red", marker="s", linestyle="None", markersize=5, label="Cratons"
+    )
+    purple_triangle = mlines.Line2D(
+        [],
+        [],
+        color="purple",
+        marker="^",
+        linestyle="None",
+        markersize=5,
+        label="Shields",
+    )
+    green_circle = mlines.Line2D(
+        [],
+        [],
+        color="green",
+        marker="o",
+        linestyle="None",
+        markersize=5,
+        label="Continents",
+    )
+
+    plt.legend(
+        handles=[blue_star, red_square, green_circle, purple_triangle],
+        loc="lower right",
+        prop={"size": 6},
+    )
 
     plt.title(f"{time} Ma", fontsize=20)
 
