@@ -4,7 +4,7 @@ from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
-from shapely.geometry import MultiLineString
+from shapely.geometry import MultiLineString, MultiPolygon, Polygon, shape
 
 from gwspy import PlateModel
 
@@ -25,8 +25,40 @@ def main(show=True):
     # plot polygon without edges first
     # and then get the polygon edges as lines and  plot the edges
     # this is to get rid of the vertical line along the dateline
-    polygons = topology_10.get_plate_polygons(return_format="shapely")
-    lines = topology_10.get_plate_polygons(return_format="shapely", as_lines=True)
+    _polygons = topology_10.get_plate_polygons()
+    _lines = topology_10.get_plate_polygons(as_lines=True)
+
+    # print(_polygons)
+
+    polygons = []
+    for feature in _polygons["features"]:
+        # if feature["properties"]["type"] != "gpml:TopologicalClosedPlateBoundary":
+        #    continue
+        s = shape(feature["geometry"])
+        if isinstance(s, Polygon) or isinstance(s, MultiPolygon):
+            polygons.append(s.buffer(0))
+
+    lines = []
+    colors = []
+    feature_types = []
+    for feature in _lines["features"]:
+        s = shape(feature["geometry"])
+        lines.append(s)
+        f_type = feature["properties"]["type"]
+        if f_type == "gpml:TopologicalNetwork":
+            colors.append("green")
+        elif f_type == "gpml:TopologicalClosedPlateBoundary":
+            colors.append("blue")
+        elif f_type == "gpml:TopologicalSlabBoundary":
+            colors.append("yellow")
+        elif f_type == "gpml:OceanicCrust":
+            colors.append("orange")
+        else:
+            colors.append("red")
+
+        feature_types.append(f_type)
+
+    print(set(feature_types))
 
     fig = plt.figure(figsize=(12, 6), dpi=120)
     ax = plt.axes(projection=ccrs.Robinson())
@@ -34,21 +66,40 @@ def main(show=True):
     ax.set_global()
     ax.gridlines()
 
+    # fill the polygons with grey
     ax.add_geometries(
         polygons,
         crs=ccrs.PlateCarree(),
-        facecolor="lightgrey",
+        facecolor="grey",
         edgecolor="none",
         alpha=0.5,
     )
 
-    for line in lines:
+    # plot the lines
+    for line, c, t in zip(lines, colors, feature_types):
         if isinstance(line, MultiLineString):
             for g in line.geoms:
-                ax.plot(*g.xy, transform=ccrs.PlateCarree(), color="blue")
+                ax.plot(
+                    *g.xy, transform=ccrs.PlateCarree(), color=c, label=t, linewidth=0.7
+                )
         else:
-            ax.plot(*line.xy, transform=ccrs.PlateCarree(), color="blue")
+            ax.plot(
+                *line.xy, transform=ccrs.PlateCarree(), color=c, label=t, linewidth=0.7
+            )
 
+    # plot the legend
+    handles, labels = ax.get_legend_handles_labels()
+    unique = [
+        (h, l) for i, (h, l) in enumerate(zip(handles, labels)) if l not in labels[:i]
+    ]
+    legend = plt.legend(
+        *zip(*unique),
+        title="Feature Types",
+        prop={"size": 6},
+        loc="lower right",
+        bbox_to_anchor=(1.1, 0.9),
+    )
+    plt.setp(legend.get_title(), fontsize="xx-small")
     plt.title(f"{time} Ma")
     if show:
         plt.show()
