@@ -30,14 +30,20 @@ def plot_teeth(ax, lons, lats, polarity):
         x = [t["lon"] for t in tooth]
         y = [t["lat"] for t in tooth]
         # print(x)
-        ax.fill(x, y, transform=ccrs.PlateCarree())
+        ax.fill(
+            x,
+            y,
+            facecolor="blue",
+            edgecolor="blue",
+            transform=ccrs.PlateCarree(),
+        )
 
 
 def main(show=True):
     time = 0
     model_name = "Merdith2021"
 
-    ax = get_basemap_with_coastlines(model=model_name, time=time)
+    fig, ax = get_basemap_with_coastlines(model=model_name, time=time)
 
     model = plate_model.PlateModel(model_name)
 
@@ -55,17 +61,24 @@ def main(show=True):
         if geom["type"] == "LineString":
             lats = [lon_lat[1] for lon_lat in geom["coordinates"]]
             lons = [lon_lat[0] for lon_lat in geom["coordinates"]]
-            ax.plot(lons, lats, transform=ccrs.PlateCarree())
+            ax.plot(lons, lats, transform=ccrs.PlateCarree(), color="blue")
             plot_teeth(ax, lons, lats, polarity)
 
         elif geom["type"] == "MultiLineString":
             for line in geom["coordinates"]:
                 lats = [lon_lat[1] for lon_lat in line]
                 lons = [lon_lat[0] for lon_lat in line]
-                ax.plot(lons, lats, transform=ccrs.PlateCarree())
+                ax.plot(lons, lats, transform=ccrs.PlateCarree(), color="blue")
                 plot_teeth(ax, lons, lats, polarity)
 
-    plt.title(f"{time} Ma", fontsize=20)
+    plt.title(f"{time} Ma (Merdith2021)")
+
+    fig.text(
+        0.5,
+        0.03,
+        "subduction zones with teeth",
+        ha="center",
+    )
 
     if show:
         plt.show()
@@ -82,7 +95,17 @@ def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=14
     ax = plt.axes(projection=crs)
 
     ax.set_global()
-    ax.gridlines()
+    gl = ax.gridlines(
+        crs=ccrs.PlateCarree(),
+        draw_labels=True,
+        color="grey",
+        alpha=0.5,
+        linestyle="--",
+    )
+    gl.top_labels = False
+    gl.right_labels = False
+    gl.xlabel_style = {"size": 7, "color": "gray"}
+    gl.ylabel_style = {"size": 7, "color": "gray"}
 
     ax.add_geometries(
         coastlines_shapely,
@@ -91,7 +114,7 @@ def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=14
         edgecolor="none",
         alpha=0.5,
     )
-    return ax
+    return fig, ax
 
 
 def save_fig(filename):

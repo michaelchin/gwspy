@@ -4,7 +4,8 @@ from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
-from shapely.geometry import MultiLineString
+import numpy as np
+from shapely.geometry import MultiLineString, MultiPolygon, Polygon, shape
 
 from gwspy import PlateModel
 
@@ -21,21 +22,77 @@ def main(show=True):
     time = 10
     topology_10 = model.get_topology(time)
 
-    polylines = topology_10.get_plate_boundaries(return_format="shapely")
+    _lines = topology_10.get_plate_boundaries()
+    colors = []
+    feature_types = []
+    polylines = []
+    color_map = {}
+    for feature in _lines["features"]:
+        s = shape(feature["geometry"])
+        polylines.append(s)
+        f_type = feature["properties"]["type"]
+        feature_types.append(f_type)
+        if f_type not in color_map:
+            cc = list(np.random.choice(range(256), size=3) / 256)
+            color_map[f_type] = cc
+        else:
+            cc = color_map[f_type]
+        colors.append(cc)
+        # if f_type == "gpml:TopologicalNetwork":
+        #    colors.append("green")
+
+    print(set(feature_types))
 
     fig = plt.figure(figsize=(12, 6), dpi=120)
     ax = plt.axes(projection=ccrs.Robinson())
 
     ax.set_global()
-    ax.gridlines()
+    gl = ax.gridlines(
+        crs=ccrs.PlateCarree(),
+        draw_labels=True,
+        color="grey",
+        alpha=0.5,
+        linestyle="--",
+    )
+    gl.top_labels = False
+    gl.right_labels = False
+    gl.xlabel_style = {"size": 7, "color": "gray"}
+    gl.ylabel_style = {"size": 7, "color": "gray"}
 
-    for line in polylines:
+    # plot the lines
+    for line, c, t in zip(polylines, colors, feature_types):
         if isinstance(line, MultiLineString):
             for g in line.geoms:
-                ax.plot(*g.xy, transform=ccrs.PlateCarree(), color="blue")
+                ax.plot(
+                    *g.xy, transform=ccrs.PlateCarree(), color=c, label=t, linewidth=0.7
+                )
         else:
-            ax.plot(*line.xy, transform=ccrs.PlateCarree(), color="blue")
-    plt.title(f"{time} Ma")
+            ax.plot(
+                *line.xy, transform=ccrs.PlateCarree(), color=c, label=t, linewidth=0.7
+            )
+    # plot the legend
+    handles, labels = ax.get_legend_handles_labels()
+    unique = [
+        (h, l) for i, (h, l) in enumerate(zip(handles, labels)) if l not in labels[:i]
+    ]
+    legend = plt.legend(
+        *zip(*unique),
+        title="Feature Types",
+        prop={"size": 6},
+        loc="lower right",
+        bbox_to_anchor=(1.14, 0.6),
+    )
+    plt.setp(legend.get_title(), fontsize="xx-small")
+
+    plt.title(f"{time} Ma (Muller2019)")
+
+    fig.text(
+        0.5,
+        0.03,
+        "topological plate boundaries with random colours for each feature type",
+        ha="center",
+    )
+
     if show:
         plt.show()
     else:

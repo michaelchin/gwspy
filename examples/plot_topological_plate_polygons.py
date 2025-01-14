@@ -64,7 +64,17 @@ def main(show=True):
     ax = plt.axes(projection=ccrs.Robinson())
 
     ax.set_global()
-    ax.gridlines()
+    gl = ax.gridlines(
+        crs=ccrs.PlateCarree(),
+        draw_labels=True,
+        color="grey",
+        alpha=0.5,
+        linestyle="--",
+    )
+    gl.top_labels = False
+    gl.right_labels = False
+    gl.xlabel_style = {"size": 7, "color": "gray"}
+    gl.ylabel_style = {"size": 7, "color": "gray"}
 
     # fill the polygons with grey
     ax.add_geometries(
@@ -100,7 +110,15 @@ def main(show=True):
         bbox_to_anchor=(1.1, 0.9),
     )
     plt.setp(legend.get_title(), fontsize="xx-small")
-    plt.title(f"{time} Ma")
+    plt.title(f"{time} Ma (Muller2019)")
+
+    fig.text(
+        0.5,
+        0.03,
+        "topological closed plate boundary and network",
+        ha="center",
+    )
+
     if show:
         plt.show()
     else:

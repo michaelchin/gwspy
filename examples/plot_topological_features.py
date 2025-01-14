@@ -16,13 +16,25 @@ Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 # micromamba run -n gplates-ws-example ./plot_topological_features.py
 
 
-def plot_lines(ax, lines, color="blue"):
+def plot_lines(ax, lines, color="blue", label=""):
     for line in lines:
         if isinstance(line, MultiLineString):
             for g in line.geoms:
-                ax.plot(*g.xy, transform=ccrs.PlateCarree(), color=color)
+                ax.plot(
+                    *g.xy,
+                    transform=ccrs.PlateCarree(),
+                    color=color,
+                    label=label,
+                    linewidth=0.7,
+                )
         else:
-            ax.plot(*line.xy, transform=ccrs.PlateCarree(), color=color)
+            ax.plot(
+                *line.xy,
+                transform=ccrs.PlateCarree(),
+                color=color,
+                label=label,
+                linewidth=0.7,
+            )
 
 
 def main(show=True):
@@ -30,7 +42,7 @@ def main(show=True):
     time = 10
     topology_10 = model.get_topology(time)
 
-    mid_ccean_ridge = topology_10.get_features("MidOceanRidge", return_format="shapely")
+    mid_ocean_ridge = topology_10.get_features("MidOceanRidge", return_format="shapely")
     transform = topology_10.get_features("Transform", return_format="shapely")
     fault = topology_10.get_features("Fault", return_format="shapely")
     subduction = topology_10.get_features("SubductionZone", return_format="shapely")
@@ -39,14 +51,45 @@ def main(show=True):
     ax = plt.axes(projection=ccrs.Robinson())
 
     ax.set_global()
-    ax.gridlines()
+    gl = ax.gridlines(
+        crs=ccrs.PlateCarree(),
+        draw_labels=True,
+        color="grey",
+        alpha=0.5,
+        linestyle="--",
+    )
+    gl.top_labels = False
+    gl.right_labels = False
+    gl.xlabel_style = {"size": 7, "color": "gray"}
+    gl.ylabel_style = {"size": 7, "color": "gray"}
 
-    plot_lines(ax, mid_ccean_ridge, color="red")
-    plot_lines(ax, transform, color="black")
-    plot_lines(ax, fault, color="yellow")
-    plot_lines(ax, subduction)
+    plot_lines(ax, mid_ocean_ridge, color="red", label="mid-ocean ridge")
+    plot_lines(ax, transform, color="black", label="transform")
+    plot_lines(ax, fault, color="orange", label="fault")
+    plot_lines(ax, subduction, label="subduction zone")
 
-    plt.title(f"{time} Ma")
+    # plot the legend
+    handles, labels = ax.get_legend_handles_labels()
+    unique = [
+        (h, l) for i, (h, l) in enumerate(zip(handles, labels)) if l not in labels[:i]
+    ]
+    legend = plt.legend(
+        *zip(*unique),
+        title="Feature Types",
+        prop={"size": 6},
+        loc="lower right",
+        bbox_to_anchor=(1.0, 0.9),
+    )
+    plt.setp(legend.get_title(), fontsize="xx-small")
+
+    plt.title(f"{time} Ma (Muller2019)")
+
+    fig.text(
+        0.5,
+        0.03,
+        "topological features with different colours",
+        ha="center",
+    )
     if show:
         plt.show()
     else:
