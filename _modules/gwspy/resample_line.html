@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gwspy.resample_line &mdash; gwspy 1.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -69,28 +69,28 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gwspy.resample_line</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">rotation</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">rotation</span>
 
 
 <div class="viewcode-block" id="degree_to_radian">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.resample_line.degree_to_radian">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">degree_to_radian</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">degree_to_radian</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span></div>
 
 
 
 <div class="viewcode-block" id="radian_to_degree">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.resample_line.radian_to_degree">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">radian_to_degree</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">radian_to_degree</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span></div>
 
 
 
 <div class="viewcode-block" id="sample_next_point">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.resample_line.sample_next_point">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">sample_next_point</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">accum_length</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">sample_next_point</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">accum_length</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;recursive function to sample point one by one</span>
 <span class="sd">    :param line: a list of (lat, lon) in radians</span>
 <span class="sd">    :param distance: the distance to the next point</span>
@@ -132,7 +132,7 @@
 
 <div class="viewcode-block" id="resample_line">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.resample_line.resample_line">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">resample_line</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">resample_line</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;resample a line.</span>
 <span class="sd">    :param line: a list of (lat, lon) in radians</span>
 <span class="sd">    :param distance: the distance of the adjacent points</span>

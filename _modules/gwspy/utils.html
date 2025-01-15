@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gwspy.utils &mdash; gwspy 1.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -69,15 +69,15 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gwspy.utils</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiPolygon</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">shape</span>
+<span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">MultiPolygon</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">shape</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_auth</span> <span class="k">as</span> <span class="n">a</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">._auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">auth</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_auth</span> <span class="k">as</span> <span class="n">a</span>
+<span class="kn">from</span> <span class="nn">._auth</span> <span class="kn">import</span> <span class="n">auth</span>
 
 
 <div class="viewcode-block" id="geojson_to_shapely">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.utils.geojson_to_shapely">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">geojson_to_shapely</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">geojson_to_shapely</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]:</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">])</span>
@@ -93,7 +93,7 @@
 <div class="viewcode-block" id="get_cfg">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.utils.get_cfg">[docs]</a>
 <span class="nd">@auth</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_cfg</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_cfg</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span>
         <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
         <span class="s2">&quot;passwd&quot;</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">passwd</span><span class="p">,</span>

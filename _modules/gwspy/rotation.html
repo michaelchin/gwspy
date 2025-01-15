@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gwspy.rotation &mdash; gwspy 1.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -69,9 +69,9 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gwspy.rotation</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">quaternions</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">quaternions</span>
 
 <span class="c1">#</span>
 <span class="c1"># a collection of rotation related functions</span>
@@ -80,7 +80,7 @@
 
 <div class="viewcode-block" id="cross">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.cross">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;cross product of two vectors defined only in three-dimensional space</span>
 <span class="sd">    https://www.mathsisfun.com/algebra/vectors-cross-product.html</span>
 <span class="sd">    https://en.wikipedia.org/wiki/Cross_product#Computing</span>
@@ -102,7 +102,7 @@
 
 <div class="viewcode-block" id="dot">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.dot">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;dot product of two vectors</span>
 <span class="sd">    https://www.mathsisfun.com/algebra/vectors-dot-product.html</span>
 
@@ -117,7 +117,7 @@
 
 <div class="viewcode-block" id="find_axis_and_angle">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.find_axis_and_angle">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">find_axis_and_angle</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">find_axis_and_angle</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;given two points point_a and point_b in (lat, lon) format in radians,</span>
 <span class="sd">    return axis(lat, lon) and angle in radians</span>
 
@@ -142,7 +142,7 @@
 
 <div class="viewcode-block" id="rotate">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.rotate">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;rotate a point by axis and angle</span>
 
 <span class="sd">    :param point: (lat, lon) in radians</span>
@@ -162,7 +162,7 @@
 
 <div class="viewcode-block" id="interp_two_points">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.interp_two_points">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">interp_two_points</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">interp_two_points</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;interpolate between two points(in radians) along the great circle</span>
 <span class="sd">    return a list of interpolated points (lat, lon) in radians</span>
 
@@ -189,7 +189,7 @@
 
 <div class="viewcode-block" id="sample_between_two_points">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.sample_between_two_points">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">sample_between_two_points</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">distances_to_point_a</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">sample_between_two_points</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">distances_to_point_a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;sample points between two points along the great circle according to a list of distances to point a</span>
 
 <span class="sd">    :param point_a: point a (lat, lon) in radians</span>
@@ -222,7 +222,7 @@
 
 <div class="viewcode-block" id="distance">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.distance">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">earth_radius</span><span class="o">=</span><span class="mf">6378.14</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">,</span> <span class="n">earth_radius</span><span class="o">=</span><span class="mf">6378.14</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;calculate the distance between to points (lat, lon) in radians</span>
 <span class="sd">    return the distance in km</span>
 
@@ -241,7 +241,7 @@
 
 <div class="viewcode-block" id="radian_distance">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.radian_distance">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">radian_distance</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">radian_distance</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;calculate the distance between to points (lat, lon) in radians</span>
 <span class="sd">    return the distance in radians</span>
 
@@ -259,14 +259,14 @@
 
 <div class="viewcode-block" id="km_to_radian">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.km_to_radian">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">km_to_radian</span><span class="p">(</span><span class="n">km</span><span class="p">,</span> <span class="n">earth_radius</span><span class="o">=</span><span class="mf">6378.14</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">km_to_radian</span><span class="p">(</span><span class="n">km</span><span class="p">,</span> <span class="n">earth_radius</span><span class="o">=</span><span class="mf">6378.14</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">km</span> <span class="o">/</span> <span class="n">earth_radius</span></div>
 
 
 
 <div class="viewcode-block" id="radian_to_km">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.rotation.radian_to_km">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">radian_to_km</span><span class="p">(</span><span class="n">radian</span><span class="p">,</span> <span class="n">earth_radius</span><span class="o">=</span><span class="mf">6378.14</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">radian_to_km</span><span class="p">(</span><span class="n">radian</span><span class="p">,</span> <span class="n">earth_radius</span><span class="o">=</span><span class="mf">6378.14</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">radian</span> <span class="o">*</span> <span class="n">earth_radius</span></div>
 
 

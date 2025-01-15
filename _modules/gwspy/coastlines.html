@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gwspy.coastlines &mdash; gwspy 1.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -69,17 +69,17 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gwspy.coastlines</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">shape</span>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">shape</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_auth</span> <span class="k">as</span> <span class="n">a</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">._auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">auth</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_auth</span> <span class="k">as</span> <span class="n">a</span>
+<span class="kn">from</span> <span class="nn">._auth</span> <span class="kn">import</span> <span class="n">auth</span>
 
 
 <div class="viewcode-block" id="get_paleo_coastlines">
 <a class="viewcode-back" href="../../gwspy.html#gwspy.coastlines.get_paleo_coastlines">[docs]</a>
 <span class="nd">@auth</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_paleo_coastlines</span><span class="p">(</span>
+<span class="k">def</span> <span class="nf">get_paleo_coastlines</span><span class="p">(</span>
     <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;MULLER2022&quot;</span><span class="p">,</span>
     <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;geojson&quot;</span><span class="p">,</span>
