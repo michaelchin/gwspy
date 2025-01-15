@@ -15,25 +15,31 @@ Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 # export GWS_URL=http://localhost:18000/
 # micromamba run -n gplates-ws-example ./plot_topological_plate_polygons.py
 
+model_name = "Alfonso2024"
+
 
 def main(show=True):
-    model = PlateModel("Muller2019")
-    time = 10
-    topology_10 = model.get_topology(time)
+    model = PlateModel(model_name)
+    time = 100
+    topology_100 = model.get_topology(time)
 
     # LOOK HERE!!!!
     # plot polygon without edges first
     # and then get the polygon edges as lines and  plot the edges
     # this is to get rid of the vertical line along the dateline
-    _polygons = topology_10.get_plate_polygons()
-    _lines = topology_10.get_plate_polygons(as_lines=True)
+    _polygons = topology_100.get_plate_polygons()
+    _lines = topology_100.get_plate_polygons(as_lines=True)
 
     # print(_polygons)
 
     polygons = []
     for feature in _polygons["features"]:
-        # if feature["properties"]["type"] != "gpml:TopologicalClosedPlateBoundary":
+        # if "Africa Basins temporary rigid block" in feature["properties"]["name"]:
+        #    print(feature["properties"]["name"])
         #    continue
+        # print(feature["properties"]["name"])
+        if feature["properties"]["type"] == "gpml:OceanicCrust":
+            continue
         s = shape(feature["geometry"])
         if isinstance(s, Polygon) or isinstance(s, MultiPolygon):
             polygons.append(s.buffer(0))
@@ -43,16 +49,18 @@ def main(show=True):
     feature_types = []
     for feature in _lines["features"]:
         s = shape(feature["geometry"])
-        lines.append(s)
         f_type = feature["properties"]["type"]
+        if f_type == "gpml:OceanicCrust":
+            continue
+
+        lines.append(s)
+
         if f_type == "gpml:TopologicalNetwork":
             colors.append("green")
         elif f_type == "gpml:TopologicalClosedPlateBoundary":
             colors.append("blue")
         elif f_type == "gpml:TopologicalSlabBoundary":
             colors.append("yellow")
-        elif f_type == "gpml:OceanicCrust":
-            colors.append("orange")
         else:
             colors.append("red")
 
@@ -110,7 +118,7 @@ def main(show=True):
         bbox_to_anchor=(1.1, 0.9),
     )
     plt.setp(legend.get_title(), fontsize="xx-small")
-    plt.title(f"{time} Ma (Muller2019)")
+    plt.title(f"{time} Ma ({model_name})")
 
     fig.text(
         0.5,

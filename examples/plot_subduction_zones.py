@@ -40,8 +40,8 @@ def plot_teeth(ax, lons, lats, polarity):
 
 
 def main(show=True):
-    time = 0
-    model_name = "Merdith2021"
+    time = 100
+    model_name = "Alfonso2024"
 
     fig, ax = get_basemap_with_coastlines(model=model_name, time=time)
 
@@ -71,7 +71,7 @@ def main(show=True):
                 ax.plot(lons, lats, transform=ccrs.PlateCarree(), color="blue")
                 plot_teeth(ax, lons, lats, polarity)
 
-    plt.title(f"{time} Ma (Merdith2021)")
+    plt.title(f"{time} Ma ({model_name})")
 
     fig.text(
         0.5,
@@ -86,7 +86,7 @@ def main(show=True):
         save_fig(__file__)
 
 
-def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=140):
+def get_basemap_with_coastlines(model, crs=ccrs.Robinson(), time=140):
     coastlines_shapely = coastlines.get_paleo_coastlines(
         time=time, model=model, format="shapely"
     )
@@ -110,9 +110,9 @@ def get_basemap_with_coastlines(model="Muller2019", crs=ccrs.Robinson(), time=14
     ax.add_geometries(
         coastlines_shapely,
         crs=ccrs.PlateCarree(),
-        facecolor="grey",
+        facecolor="lightgrey",
         edgecolor="none",
-        alpha=0.5,
+        alpha=1,
     )
     return fig, ax
 
