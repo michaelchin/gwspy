@@ -3,7 +3,10 @@ import sys
 from pathlib import Path
 
 import cartopy.crs as ccrs
+import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
+import numpy as np
+import shapely
 from shapely.geometry import MultiLineString, MultiPolygon, Polygon, shape
 
 from gwspy import PlateModel
@@ -15,12 +18,12 @@ Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 # export GWS_URL=http://localhost:18000/
 # micromamba run -n gplates-ws-example ./plot_topological_plate_polygons.py
 
-model_name = "Alfonso2024"
+model_name = "cao2024"
 
 
 def main(show=True):
     model = PlateModel(model_name)
-    time = 100
+    time = 140
     topology_100 = model.get_topology(time)
 
     # LOOK HERE!!!!
@@ -30,19 +33,24 @@ def main(show=True):
     _polygons = topology_100.get_plate_polygons()
     _lines = topology_100.get_plate_polygons(as_lines=True)
 
-    # print(_polygons)
-
+    pid_color_map = {}
+    pids = []
     polygons = []
+    fill_colors = []
     for feature in _polygons["features"]:
-        # if "Africa Basins temporary rigid block" in feature["properties"]["name"]:
-        #    print(feature["properties"]["name"])
-        #    continue
         # print(feature["properties"]["name"])
-        if feature["properties"]["type"] == "gpml:OceanicCrust":
+        if feature["properties"]["type"] != "gpml:TopologicalClosedPlateBoundary":
             continue
         s = shape(feature["geometry"])
         if isinstance(s, Polygon) or isinstance(s, MultiPolygon):
             polygons.append(s.buffer(0))
+            pids.append(feature["properties"]["pid"])
+            if feature["properties"]["pid"] in pid_color_map:
+                fill_colors.append(pid_color_map[feature["properties"]["pid"]])
+            else:
+                cc = list(np.random.choice(range(256), size=3) / 256)
+                pid_color_map[feature["properties"]["pid"]] = cc
+                fill_colors.append(cc)
 
     lines = []
     colors = []
@@ -50,20 +58,11 @@ def main(show=True):
     for feature in _lines["features"]:
         s = shape(feature["geometry"])
         f_type = feature["properties"]["type"]
-        if f_type == "gpml:OceanicCrust":
+        if f_type != "gpml:TopologicalClosedPlateBoundary":
             continue
 
         lines.append(s)
-
-        if f_type == "gpml:TopologicalNetwork":
-            colors.append("green")
-        elif f_type == "gpml:TopologicalClosedPlateBoundary":
-            colors.append("blue")
-        elif f_type == "gpml:TopologicalSlabBoundary":
-            colors.append("yellow")
-        else:
-            colors.append("red")
-
+        colors.append("black")
         feature_types.append(f_type)
 
     print(set(feature_types))
@@ -84,14 +83,36 @@ def main(show=True):
     gl.xlabel_style = {"size": 7, "color": "gray"}
     gl.ylabel_style = {"size": 7, "color": "gray"}
 
+    pids_to_show = [
+        919,
+        901,
+        902,
+        101,
+        301,
+        201,
+        802,
+        701,
+        714,
+        715,
+        534,
+        780,
+        380,
+        609,
+        801,
+        926,
+    ]
     # fill the polygons with grey
-    ax.add_geometries(
-        polygons,
-        crs=ccrs.PlateCarree(),
-        facecolor="grey",
-        edgecolor="none",
-        alpha=0.5,
-    )
+    for p, c, pid in zip(polygons, fill_colors, pids):
+        ax.add_geometries(
+            [p],
+            crs=ccrs.PlateCarree(),
+            facecolor=c,
+            edgecolor="none",
+            alpha=0.5,
+        )
+        center = p.representative_point()
+        if pid in pids_to_show:
+            ax.text(center.x, center.y, pid, transform=ccrs.PlateCarree())
 
     # plot the lines
     for line, c, t in zip(lines, colors, feature_types):
@@ -106,24 +127,27 @@ def main(show=True):
             )
 
     # plot the legend
-    handles, labels = ax.get_legend_handles_labels()
-    unique = [
-        (h, l) for i, (h, l) in enumerate(zip(handles, labels)) if l not in labels[:i]
-    ]
+    handles = []
+    pid_keys = list(pid_color_map.keys())
+    pid_keys.sort()
+    for pc in pid_keys:
+        p = mpatches.Patch(color=pid_color_map[pc], label=pc)
+        handles.append(p)
     legend = plt.legend(
-        *zip(*unique),
-        title="Feature Types",
+        handles=handles,
+        title="Plate IDs",
         prop={"size": 6},
         loc="lower right",
-        bbox_to_anchor=(1.1, 0.9),
+        bbox_to_anchor=(1.1, 0.3),
     )
+
     plt.setp(legend.get_title(), fontsize="xx-small")
     plt.title(f"{time} Ma ({model_name})")
 
     fig.text(
         0.5,
         0.03,
-        "topological closed plate boundary and network",
+        "The topological plate polygons are filled with random colours.",
         ha="center",
     )
 

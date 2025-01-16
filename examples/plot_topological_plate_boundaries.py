@@ -16,12 +16,12 @@ Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 # export GWS_URL=http://localhost:18000/
 # micromamba run -n gplates-ws-example ./plot_topological_plate_boundaries.py
 
-model_name = "Alfonso2024"
+model_name = "Cao2024"
 
 
 def main(show=True):
     model = PlateModel(model_name)
-    time = 100
+    time = 1000
     topology_100 = model.get_topology(time)
 
     _lines = topology_100.get_plate_boundaries()
@@ -32,7 +32,6 @@ def main(show=True):
         "MidOceanRidge": "red",
         "Transform": "red",
         "SubductionZone": "blue",
-        "Fault": "orange",
     }
     for feature in _lines["features"]:
         s = shape(feature["geometry"])
@@ -112,7 +111,7 @@ def main(show=True):
     fig.text(
         0.5,
         0.03,
-        "the topological plate boundaries are plotted as line segments",
+        "The topological plate boundaries are plotted as line segments.",
         ha="center",
     )
 

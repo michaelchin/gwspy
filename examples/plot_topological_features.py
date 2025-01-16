@@ -37,9 +37,12 @@ def plot_lines(ax, lines, color="blue", label=""):
             )
 
 
+model_name = "Cao2024"
+
+
 def main(show=True):
-    model = PlateModel("Muller2019")
-    time = 10
+    model = PlateModel(model_name)
+    time = 1000
     topology_10 = model.get_topology(time)
 
     mid_ocean_ridge = topology_10.get_features("MidOceanRidge", return_format="shapely")
@@ -64,7 +67,7 @@ def main(show=True):
     gl.ylabel_style = {"size": 7, "color": "gray"}
 
     plot_lines(ax, mid_ocean_ridge, color="red", label="mid-ocean ridge")
-    plot_lines(ax, transform, color="black", label="transform")
+    plot_lines(ax, transform, color="red", label="transform")
     plot_lines(ax, fault, color="orange", label="fault")
     plot_lines(ax, subduction, label="subduction zone")
 
@@ -82,12 +85,12 @@ def main(show=True):
     )
     plt.setp(legend.get_title(), fontsize="xx-small")
 
-    plt.title(f"{time} Ma (Muller2019)")
+    plt.title(f"{time} Ma ({model_name})")
 
     fig.text(
         0.5,
         0.03,
-        "topological features with different colours",
+        "selected topological features",
         ha="center",
     )
     if show:
